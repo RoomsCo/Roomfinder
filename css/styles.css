@@ -1,0 +1,1720 @@
+/* ==========================================================================
+   RoomFinder · css/styles.css
+   Startup: RoomsCo · Curso 1ACC0237 IHC y Programación Web · 2026-20 · G4
+
+   Fuente de verdad: archivo Figma "RoomFinder_1ACC0237-202620_G4"
+   (página 3.3 · Sistema de diseño). Los nombres de las variables
+   (--rf-color-*, --rf-space-*, --rf-radius-*) son los mismos que usan las
+   variables de Figma, para que el código y el diseño se mapeen 1 a 1.
+
+   Índice
+   01. Tokens (variables)
+   02. Reset y base
+   03. Tipografía
+   04. Layout: contenedor, grid 12/4 columnas, utilidades
+   05. Navegación y footer
+   06. Botones
+   07. Formularios (input, checkbox)
+   08. Chips, tabs, badges, alertas
+   09. Tarjetas (habitación, paso, beneficio, testimonio)
+   10. Modal, estado vacío, carga
+   11. Selector de día y favorito
+   12. Secciones de la landing
+   13. Pantallas de la app (auth, tablas, paneles)
+   14. Accesibilidad y preferencias del usuario
+   15. Responsive (móvil ≤ 768 px, tablet ≤ 1024 px)
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* --------------------------------------------------------------------------
+   01. TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color · marca */
+  --rf-color-primary: #2563eb;      /* Acciones y foco */
+  --rf-color-hover: #1d4ed8;        /* Primary · hover */
+  --rf-color-pressed: #1e40af;      /* Primary · pressed */
+  --rf-color-secondary: #0f766e;    /* Vivienda y compatibilidad */
+  --rf-color-tealSoft: #ccfbf1;     /* Fondo suave del secundario */
+
+  /* Color · estado */
+  --rf-color-success: #15803d;      /* Confirmación */
+  --rf-color-error: #b91c1c;        /* Error y riesgo */
+  --rf-color-warning: #b45309;      /* Atención */
+
+  /* Texto de estado sobre fondo tintado: versión un paso más oscura de
+     success/warning para cumplir WCAG AA (4.5:1). Con el valor exacto de
+     Figma el contraste sobre el tinte al 9 % es 4.46:1. */
+  --rf-color-success-text: #166534;
+  --rf-color-warning-text: #92400e;
+
+  /* Color · neutros */
+  --rf-color-background: #f7f5f2;   /* Canvas cálido */
+  --rf-color-surface: #ffffff;      /* Tarjetas */
+  --rf-color-soft: #f1efeb;         /* Hover/pressed secundario, campo deshabilitado */
+  --rf-color-border: #d6d3d1;       /* Divisores */
+  --rf-color-text: #1c1917;         /* Contenido */
+  --rf-color-muted: #57534e;        /* Texto de apoyo */
+  --rf-color-disabled: #cbd5e1;     /* Elementos deshabilitados */
+
+  /* Fondos translúcidos de badges y alertas (color de estado al 9 %) */
+  --rf-tint-secondary: rgba(15, 118, 110, 0.09);
+  --rf-tint-success: rgba(21, 128, 61, 0.09);
+  --rf-tint-warning: rgba(180, 83, 9, 0.09);
+  --rf-tint-error: rgba(185, 28, 28, 0.09);
+
+  /* Espaciado · sistema de 8 px (+ pasos intermedios usados en el diseño) */
+  --rf-space-2: 2px;
+  --rf-space-4: 4px;
+  --rf-space-6: 6px;
+  --rf-space-8: 8px;
+  --rf-space-10: 10px;
+  --rf-space-12: 12px;
+  --rf-space-16: 16px;
+  --rf-space-20: 20px;
+  --rf-space-24: 24px;
+  --rf-space-32: 32px;
+  --rf-space-40: 40px;
+  --rf-space-48: 48px;
+  --rf-space-64: 64px;
+
+  /* Radios */
+  --rf-radius-8: 8px;     /* botones de pantalla, tabs, días */
+  --rf-radius-10: 10px;   /* botón/campo del sistema de diseño, logo */
+  --rf-radius-12: 12px;   /* tarjetas */
+  --rf-radius-20: 20px;   /* paneles y modal */
+  --rf-radius-pill: 999px;
+
+  /* Sombra de elevación (tarjetas y modal) */
+  --rf-shadow-card: 0 8px 24px rgba(28, 25, 23, 0.08);
+
+  /* Tipografía */
+  --rf-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --rf-text-display: 48px;   /* H1 del hero */
+  --rf-text-h1: 40px;
+  --rf-text-h2: 28px;
+  --rf-text-h3: 24px;        /* títulos de sección */
+  --rf-text-h4: 20px;        /* título de modal, logotipo */
+  --rf-text-lg: 18px;        /* precio, subtítulos */
+  --rf-text-body: 16px;
+  --rf-text-label: 14px;
+  --rf-text-caption: 13px;
+  --rf-text-micro: 12px;
+
+  /* Layout */
+  --rf-max-width: 1440px;
+  --rf-margin: 80px;         /* margen lateral desktop */
+  --rf-gutter: 24px;         /* gutter desktop */
+  --rf-nav-height: 64px;
+  --rf-touch-target: 44px;   /* mínimo de interacción */
+
+  /* Movimiento */
+  --rf-transition: 150ms ease;
+}
+
+/* --------------------------------------------------------------------------
+   02. RESET Y BASE
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--rf-color-background);
+  color: var(--rf-color-text);
+  font-family: var(--rf-font);
+  font-size: var(--rf-text-body);
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd, ul, ol {
+  margin: 0;
+}
+
+ul[role="list"],
+ol[role="list"],
+.list-reset {
+  list-style: none;
+  padding: 0;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: var(--rf-color-primary);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--rf-color-hover);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   03. TIPOGRAFÍA  (Inter · H1 40 Bold · H2 28 Semibold · Cuerpo 16 · Leyenda 13)
+   -------------------------------------------------------------------------- */
+h1, .h1 {
+  font-size: var(--rf-text-h1);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h2, .h2 {
+  font-size: var(--rf-text-h2);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+h3, .h3 {
+  font-size: var(--rf-text-h3);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+h4, .h4 {
+  font-size: var(--rf-text-h4);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.text-display {
+  font-size: var(--rf-text-display);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.text-lg      { font-size: var(--rf-text-lg); }
+.text-body    { font-size: var(--rf-text-body); line-height: 24px; }
+.text-label   { font-size: var(--rf-text-label); line-height: 20px; font-weight: 600; }
+.text-caption { font-size: var(--rf-text-caption); line-height: 20px; }
+.text-micro   { font-size: var(--rf-text-micro); line-height: 16px; }
+
+.text-muted   { color: var(--rf-color-muted); }
+.text-center  { text-align: center; }
+.text-error   { color: var(--rf-color-error); }
+.text-success { color: var(--rf-color-success-text); }
+
+.price {
+  font-size: var(--rf-text-lg);
+  font-weight: 700;
+  color: var(--rf-color-text);
+  white-space: nowrap;
+}
+
+/* Etiqueta superior de sección ("Identidad", "Tipografía"…) */
+.eyebrow {
+  font-size: var(--rf-text-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--rf-color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   04. LAYOUT
+   Desktop: 12 columnas · margen 80 · gutter 24 · ancho 1440
+   Móvil:   4 columnas  · margen 16 · gutter 16 · ancho 390
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--rf-max-width);
+  margin-inline: auto;
+  padding-inline: var(--rf-margin);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--rf-gutter);
+}
+
+.col-12 { grid-column: span 12; }
+.col-8  { grid-column: span 8; }
+.col-6  { grid-column: span 6; }
+.col-4  { grid-column: span 4; }
+.col-3  { grid-column: span 3; }
+
+/* Utilidades de composición */
+.stack        { display: flex; flex-direction: column; gap: var(--rf-space-16); }
+.stack--8     { gap: var(--rf-space-8); }
+.stack--12    { gap: var(--rf-space-12); }
+.stack--24    { gap: var(--rf-space-24); }
+.stack--32    { gap: var(--rf-space-32); }
+.cluster      { display: flex; flex-wrap: wrap; align-items: center; gap: var(--rf-space-8); }
+.cluster--12  { gap: var(--rf-space-12); }
+.cluster--16  { gap: var(--rf-space-16); }
+.cluster--between { justify-content: space-between; }
+.w-full       { width: 100%; }
+
+/* Cuadrícula de tarjetas (resultados de Explorar, Favoritos, etc.) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: var(--rf-space-16);
+}
+
+/* Contenido principal de las pantallas internas de la app */
+.app-main {
+  width: 100%;
+  max-width: var(--rf-max-width);
+  margin-inline: auto;
+  padding: var(--rf-space-40) var(--rf-margin) var(--rf-space-48);
+}
+
+.page-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-8);
+  margin-bottom: var(--rf-space-16);
+}
+
+.page-heading h1 {
+  font-size: var(--rf-text-h2);
+  line-height: 1.25;
+}
+
+.page-heading p {
+  font-size: var(--rf-text-label);
+  color: var(--rf-color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   05. NAVEGACIÓN Y FOOTER
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rf-space-24);
+  min-height: var(--rf-nav-height);
+  padding: 0 var(--rf-space-40);
+  background: var(--rf-color-surface);
+  border-bottom: 1px solid var(--rf-color-border);
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--rf-space-24);
+}
+
+.navbar__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--rf-touch-target);
+  font-size: var(--rf-text-label);
+  color: var(--rf-color-muted);
+  text-decoration: none;
+}
+
+.navbar__link:hover {
+  color: var(--rf-color-text);
+}
+
+/* Enlace activo: azul, semibold y subrayado (pantalla "Explorar") */
+.navbar__link[aria-current="page"],
+.navbar__link.is-active {
+  color: var(--rf-color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.navbar__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--rf-touch-target);
+  height: var(--rf-touch-target);
+  background: transparent;
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-8);
+}
+
+/* Logotipo: marca (cuadrado azul con ícono) + wordmark Inter Bold 20 */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rf-space-8);
+  color: var(--rf-color-text);
+  font-size: var(--rf-text-h4);
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.logo:hover {
+  color: var(--rf-color-text);
+}
+
+.logo__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  background: var(--rf-color-primary);
+  border-radius: var(--rf-radius-10);
+}
+
+.logo__mark img,
+.logo__mark svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Selector de idioma ES | EN (i18n) */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rf-space-6);
+  min-height: var(--rf-touch-target);
+  padding: 0 var(--rf-space-4);
+  background: transparent;
+  border: 0;
+  font-size: var(--rf-text-caption);
+  font-weight: 600;
+  color: var(--rf-color-text);
+}
+
+.lang-switch svg,
+.lang-switch img {
+  width: 14px;
+  height: 14px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rf-space-24);
+  padding: var(--rf-space-32) var(--rf-margin);
+  background: var(--rf-color-surface);
+  border-top: 1px solid var(--rf-color-border);
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-4);
+}
+
+.footer__brand strong {
+  font-size: var(--rf-text-body);
+  font-weight: 600;
+}
+
+.footer__brand small {
+  font-size: var(--rf-text-micro);
+  color: var(--rf-color-muted);
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--rf-space-16);
+}
+
+.footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--rf-touch-target);
+  font-size: var(--rf-text-caption);
+  color: var(--rf-color-text);
+  text-decoration: none;
+}
+
+.footer__links a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   06. BOTONES
+   Tipos: primary · secondary · tertiary · danger
+   Estados: default · hover · pressed · disabled · loading
+   (Disabled no navega. Loading evita envío duplicado.)
+   -------------------------------------------------------------------------- */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rf-space-8);
+  min-height: var(--rf-touch-target);
+  padding: var(--rf-space-10) var(--rf-space-16);
+  border: 1px solid transparent;
+  border-radius: var(--rf-radius-8);
+  font-size: var(--rf-text-label);
+  line-height: 20px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--rf-transition), border-color var(--rf-transition), color var(--rf-transition);
+}
+
+/* Variante ancha del sistema de diseño: 48 px de alto, radio 10 */
+.btn--lg {
+  min-height: 48px;
+  border-radius: var(--rf-radius-10);
+}
+
+.btn--block {
+  display: flex;
+  width: 100%;
+}
+
+/* Primary */
+.btn--primary {
+  background: var(--rf-color-primary);
+  color: var(--rf-color-surface);
+}
+.btn--primary:hover {
+  background: var(--rf-color-hover);
+  color: var(--rf-color-surface);
+}
+.btn--primary:active {
+  background: var(--rf-color-pressed);
+}
+
+/* Secondary */
+.btn--secondary {
+  background: var(--rf-color-surface);
+  border-color: var(--rf-color-border);
+  color: var(--rf-color-text);
+}
+.btn--secondary:hover {
+  border-color: var(--rf-color-primary);
+  color: var(--rf-color-text);
+}
+.btn--secondary:active {
+  background: var(--rf-color-soft);
+  border-color: var(--rf-color-border);
+}
+
+/* Tertiary (acción de texto) */
+.btn--tertiary {
+  background: transparent;
+  color: var(--rf-color-primary);
+}
+.btn--tertiary:hover {
+  background: var(--rf-color-soft);
+  color: var(--rf-color-hover);
+}
+.btn--tertiary:active {
+  background: var(--rf-color-border);
+}
+
+/* Danger */
+.btn--danger {
+  background: var(--rf-color-error);
+  color: var(--rf-color-surface);
+}
+.btn--danger:hover {
+  background: #991b1b;
+  color: var(--rf-color-surface);
+}
+.btn--danger:active {
+  background: #7f1d1d;
+}
+
+/* Botón sobre fondo oscuro (banda CTA verde): blanco con texto azul */
+.btn--on-dark {
+  background: var(--rf-color-surface);
+  color: var(--rf-color-primary);
+}
+.btn--on-dark:hover {
+  background: var(--rf-color-tealSoft);
+  color: var(--rf-color-hover);
+}
+
+/* Disabled */
+.btn:disabled,
+.btn[aria-disabled="true"],
+.btn.is-disabled {
+  background: var(--rf-color-disabled);
+  border-color: var(--rf-color-disabled);
+  color: var(--rf-color-muted);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn--secondary:disabled,
+.btn--secondary[aria-disabled="true"],
+.btn--secondary.is-disabled {
+  border-color: var(--rf-color-border);
+}
+
+/* Loading: spinner + bloqueo de clics para evitar envíos duplicados */
+.btn.is-loading,
+.btn[aria-busy="true"] {
+  pointer-events: none;
+  cursor: progress;
+}
+
+.btn.is-loading::before,
+.btn[aria-busy="true"]::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: rf-spin 700ms linear infinite;
+}
+
+@keyframes rf-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   07. FORMULARIOS
+   Campo: etiqueta persistente + valor + ayuda.
+   Estados: default · focus · filled · error · disabled
+   -------------------------------------------------------------------------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-8);
+  width: 100%;
+}
+
+.field__label {
+  font-size: var(--rf-text-label);
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--rf-color-text);
+}
+
+.field__control {
+  display: flex;
+  align-items: center;
+  gap: var(--rf-space-8);
+  min-height: 48px;
+  padding: 0 var(--rf-space-12);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-10);
+  transition: border-color var(--rf-transition);
+}
+
+.field__control > svg,
+.field__control > img {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+.field__input,
+.field__control > input,
+.field__control > select,
+.field__control > textarea {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-size: var(--rf-text-body);
+  line-height: 24px;
+  color: var(--rf-color-text);
+}
+
+.field__control > textarea {
+  padding: var(--rf-space-12) 0;
+  min-height: 96px;
+  resize: vertical;
+}
+
+.field__control > input::placeholder,
+.field__control > textarea::placeholder {
+  color: var(--rf-color-muted);
+  opacity: 1;
+}
+
+.field__help {
+  font-size: var(--rf-text-caption);
+  line-height: 20px;
+  color: var(--rf-color-muted);
+}
+
+/* Focus: borde de 2 px en azul (se compensa el padding para no mover el layout) */
+.field__control:focus-within {
+  padding: 0 11px;
+  border: 2px solid var(--rf-color-primary);
+}
+
+/* Error: borde de 2 px rojo + ayuda en rojo que explica cómo corregir */
+.field.is-error .field__control,
+.field__control[aria-invalid="true"],
+.field__control:has(input[aria-invalid="true"]) {
+  padding: 0 11px;
+  border: 2px solid var(--rf-color-error);
+}
+
+.field.is-error .field__help {
+  color: var(--rf-color-error);
+}
+
+/* Disabled */
+.field.is-disabled .field__control,
+.field__control:has(:disabled) {
+  background: var(--rf-color-soft);
+  border-color: var(--rf-color-border);
+  cursor: not-allowed;
+}
+
+.field.is-disabled .field__input,
+.field__control > :disabled {
+  color: var(--rf-color-muted);
+  cursor: not-allowed;
+}
+
+/* Versión compacta usada en las pantallas (alto 44 px, radio 8) */
+.field--compact .field__control {
+  min-height: var(--rf-touch-target);
+  border-radius: var(--rf-radius-8);
+}
+
+.field--compact .field__label {
+  font-size: var(--rf-text-caption);
+}
+
+.field--compact .field__input,
+.field--compact .field__control > input {
+  font-size: var(--rf-text-label);
+}
+
+/* Checkbox ("Comparar", aceptar términos) */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rf-space-8);
+  min-height: var(--rf-touch-target);
+  font-size: var(--rf-text-caption);
+  color: var(--rf-color-text);
+  cursor: pointer;
+}
+
+.checkbox input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  background: var(--rf-color-surface);
+  border: 2px solid var(--rf-color-muted);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--rf-transition), border-color var(--rf-transition);
+}
+
+.checkbox input:checked {
+  background: var(--rf-color-primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 14px no-repeat;
+  border-color: var(--rf-color-primary);
+}
+
+.checkbox input:disabled {
+  background: var(--rf-color-soft);
+  border-color: var(--rf-color-disabled);
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   08. CHIPS, TABS, BADGES Y ALERTAS
+   -------------------------------------------------------------------------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rf-space-8);
+}
+
+/* Chip de filtro: alterna con aria-pressed="true" */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: var(--rf-space-8) var(--rf-space-12);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-pill);
+  font-size: var(--rf-text-caption);
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--rf-color-text);
+  white-space: nowrap;
+  transition: background-color var(--rf-transition), border-color var(--rf-transition);
+}
+
+.chip:hover {
+  border-color: var(--rf-color-secondary);
+}
+
+.chip[aria-pressed="true"],
+.chip.is-active {
+  background: var(--rf-color-tealSoft);
+  border-color: var(--rf-color-secondary);
+  color: var(--rf-color-secondary);
+  font-weight: 600;
+}
+
+/* Tabs */
+.tabs {
+  display: inline-flex;
+  gap: var(--rf-space-4);
+  padding: var(--rf-space-4);
+  background: var(--rf-color-soft);
+  border-radius: var(--rf-radius-10);
+}
+
+.tab {
+  min-height: 32px;
+  padding: var(--rf-space-8) 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--rf-radius-8);
+  font-size: var(--rf-text-caption);
+  line-height: 16px;
+  color: var(--rf-color-muted);
+}
+
+.tab:hover {
+  color: var(--rf-color-text);
+}
+
+.tab[aria-selected="true"],
+.tab.is-selected {
+  background: var(--rf-color-surface);
+  border-color: var(--rf-color-border);
+  color: var(--rf-color-text);
+  font-weight: 600;
+}
+
+/* Badge de estado: SIEMPRE icono + texto (no depender solo del color) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rf-space-6);
+  padding: var(--rf-space-6) 10px;
+  background: var(--rf-tint-secondary);
+  border-radius: var(--rf-radius-pill);
+  font-size: var(--rf-text-micro);
+  line-height: 15px;
+  font-weight: 600;
+  color: var(--rf-color-secondary);
+  white-space: nowrap;
+}
+
+.badge svg,
+.badge img {
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+
+.badge--verified { background: var(--rf-tint-secondary); color: var(--rf-color-secondary); }
+.badge--success  { background: var(--rf-tint-success);   color: var(--rf-color-success-text); }
+.badge--warning  { background: var(--rf-tint-warning);   color: var(--rf-color-warning-text); }
+.badge--error    { background: var(--rf-tint-error);     color: var(--rf-color-error); }
+.badge--soft     { background: var(--rf-color-tealSoft); color: var(--rf-color-secondary); }
+
+/* Alerta: borde izquierdo de color + badge + explicación y siguiente paso */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rf-space-12);
+  padding: var(--rf-space-16);
+  background: var(--rf-color-surface);
+  border-left: 4px solid var(--rf-color-success);
+  border-radius: var(--rf-radius-8);
+  font-size: var(--rf-text-caption);
+  line-height: 20px;
+  color: var(--rf-color-muted);
+}
+
+.alert--success { border-left-color: var(--rf-color-success); }
+.alert--warning { border-left-color: var(--rf-color-warning); }
+.alert--error   { border-left-color: var(--rf-color-error); }
+
+.alert__text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   09. TARJETAS
+   -------------------------------------------------------------------------- */
+.card {
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-12);
+  box-shadow: var(--rf-shadow-card);
+  padding: var(--rf-space-20);
+}
+
+.card--soft {
+  background: var(--rf-color-background);
+}
+
+.panel {
+  padding: var(--rf-space-32);
+  background: var(--rf-color-surface);
+  border-radius: var(--rf-radius-20);
+}
+
+/* Tarjeta de habitación */
+.room-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-12);
+  padding: var(--rf-space-12);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-12);
+  box-shadow: var(--rf-shadow-card);
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+a.room-card:hover,
+.room-card.is-interactive:hover {
+  border-color: var(--rf-color-primary);
+}
+
+.room-card__photo {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--rf-radius-8);
+  background: var(--rf-color-soft);
+}
+
+.room-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-6);
+}
+
+.room-card__availability {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rf-space-8);
+}
+
+.room-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--rf-space-8);
+}
+
+.room-card__title {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--rf-text-body);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.room-card__meta {
+  font-size: var(--rf-text-caption);
+  color: var(--rf-color-muted);
+}
+
+.room-card__services {
+  font-size: var(--rf-text-micro);
+  color: var(--rf-color-muted);
+}
+
+/* Paso "Cómo funciona" */
+.step-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--rf-space-8);
+  padding: var(--rf-space-20);
+  background: var(--rf-color-background);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-12);
+  box-shadow: var(--rf-shadow-card);
+}
+
+.step-card__number {
+  padding: var(--rf-space-4) 10px;
+  background: var(--rf-color-primary);
+  border-radius: var(--rf-radius-pill);
+  font-size: var(--rf-text-caption);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--rf-color-surface);
+}
+
+.step-card h3 {
+  font-size: var(--rf-text-body);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.step-card p {
+  font-size: var(--rf-text-caption);
+  color: var(--rf-color-muted);
+}
+
+/* Beneficios */
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-12);
+  padding: var(--rf-space-20);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-12);
+  box-shadow: var(--rf-shadow-card);
+}
+
+.benefit-card h3 {
+  font-size: var(--rf-text-body);
+  font-weight: 600;
+}
+
+.benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--rf-space-8);
+  font-size: var(--rf-text-label);
+}
+
+.benefit-list svg,
+.benefit-list img {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+/* Testimonios */
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-12);
+  padding: var(--rf-space-20);
+  background: var(--rf-color-background);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-12);
+  box-shadow: var(--rf-shadow-card);
+}
+
+.testimonial__rating {
+  display: flex;
+  gap: var(--rf-space-2);
+}
+
+.testimonial__rating svg,
+.testimonial__rating img {
+  width: 14px;
+  height: 14px;
+}
+
+.testimonial blockquote {
+  font-size: var(--rf-text-label);
+}
+
+.testimonial__author {
+  display: flex;
+  align-items: center;
+  gap: var(--rf-space-8);
+  font-size: var(--rf-text-micro);
+  color: var(--rf-color-muted);
+}
+
+.avatar {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  background: var(--rf-color-tealSoft);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   10. MODAL, ESTADO VACÍO Y CARGA
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--rf-space-16);
+  background: rgba(28, 25, 23, 0.5);
+}
+
+.modal-backdrop[hidden] {
+  display: none;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-16);
+  width: 100%;
+  max-width: 560px;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: var(--rf-space-24);
+  background: var(--rf-color-surface);
+  border-radius: var(--rf-radius-20);
+  box-shadow: var(--rf-shadow-card);
+}
+
+.modal__title {
+  font-size: var(--rf-text-h4);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.modal__text {
+  font-size: var(--rf-text-label);
+  color: var(--rf-color-muted);
+}
+
+.modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rf-space-8);
+}
+
+/* Estado vacío */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--rf-space-8);
+  padding: var(--rf-space-32) var(--rf-space-24);
+  text-align: center;
+}
+
+.empty-state__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--rf-space-4);
+  color: var(--rf-color-muted);
+}
+
+.empty-state__title {
+  font-size: var(--rf-text-lg);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.empty-state__text {
+  max-width: 40ch;
+  margin-bottom: var(--rf-space-8);
+  font-size: var(--rf-text-label);
+  color: var(--rf-color-muted);
+}
+
+/* Estado de carga: filas esqueleto + mensaje */
+.skeleton-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-12);
+  padding: var(--rf-space-32);
+}
+
+.skeleton {
+  height: 24px;
+  border-radius: var(--rf-radius-8);
+  background: linear-gradient(90deg, var(--rf-color-soft) 25%, var(--rf-color-border) 50%, var(--rf-color-soft) 75%);
+  background-size: 200% 100%;
+  animation: rf-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes rf-shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+/* --------------------------------------------------------------------------
+   11. SELECTOR DE DÍA Y FAVORITO
+   -------------------------------------------------------------------------- */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 36px);
+  gap: var(--rf-space-8);
+  justify-content: start;
+}
+
+.day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: var(--rf-color-soft);
+  border: 0;
+  border-radius: var(--rf-radius-8);
+  font-size: var(--rf-text-caption);
+  font-weight: 500;
+  color: var(--rf-color-text);
+}
+
+.day:hover {
+  background: var(--rf-color-tealSoft);
+}
+
+.day[aria-pressed="true"],
+.day.is-selected {
+  background: var(--rf-color-primary);
+  color: var(--rf-color-surface);
+  font-weight: 600;
+}
+
+/* Día no disponible: sin fondo, tachado para no depender solo del color */
+.day:disabled,
+.day[aria-disabled="true"],
+.day.is-unavailable {
+  background: transparent;
+  color: var(--rf-color-muted);
+  font-weight: 400;
+  text-decoration: line-through;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Favorito (corazón): aria-pressed="true" = guardado */
+.heart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--rf-touch-target);
+  height: var(--rf-touch-target);
+  margin: -12px;                       /* área táctil de 44 px sin agrandar el layout */
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: var(--rf-color-muted);
+}
+
+.heart-btn svg,
+.heart-btn img {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.heart-btn:hover {
+  color: var(--rf-color-error);
+}
+
+.heart-btn[aria-pressed="true"] {
+  color: var(--rf-color-error);
+}
+
+.heart-btn[aria-pressed="true"] svg {
+  fill: currentColor;
+}
+
+/* --------------------------------------------------------------------------
+   12. SECCIONES DE LA LANDING
+   -------------------------------------------------------------------------- */
+.section {
+  padding: var(--rf-space-64) var(--rf-margin);
+}
+
+.section--surface {
+  background: var(--rf-color-surface);
+}
+
+.section__title {
+  margin-bottom: var(--rf-space-24);
+  font-size: var(--rf-text-h3);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: var(--rf-space-48);
+  padding: var(--rf-space-64) var(--rf-margin);
+}
+
+.hero__copy {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--rf-space-16);
+  min-width: 0;
+}
+
+.hero__title {
+  font-size: var(--rf-text-display);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.hero__text {
+  color: var(--rf-color-muted);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rf-space-12);
+}
+
+.hero__image {
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 0;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--rf-radius-12);
+}
+
+.steps,
+.benefits,
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--rf-space-16);
+}
+
+.benefits {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cta-band {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--rf-space-16);
+  padding: var(--rf-space-64) var(--rf-margin);
+  background: var(--rf-color-secondary);
+  text-align: center;
+}
+
+.cta-band h2 {
+  font-size: var(--rf-text-h3);
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--rf-color-surface);
+}
+
+.cta-band p {
+  font-size: var(--rf-text-label);
+  color: var(--rf-color-tealSoft);
+}
+
+/* --------------------------------------------------------------------------
+   13. PANTALLAS DE LA APP
+   Autenticación (iniciar sesión, crear cuenta, recuperar, verificar correo,
+   selección de rol), detalle, comparar, paneles de anfitrión y reportes.
+   -------------------------------------------------------------------------- */
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--rf-nav-height));
+  padding: var(--rf-space-40) var(--rf-space-16);
+}
+
+.auth__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-24);
+  width: 100%;
+  max-width: 440px;
+  padding: var(--rf-space-32);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-20);
+  box-shadow: var(--rf-shadow-card);
+}
+
+.auth__card h1 {
+  font-size: var(--rf-text-h2);
+  line-height: 1.25;
+}
+
+.auth__card form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-16);
+}
+
+/* Selección de rol: dos opciones claras (estudiante / anfitrión) */
+.role-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--rf-space-16);
+}
+
+.role-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--rf-space-8);
+  padding: var(--rf-space-24);
+  background: var(--rf-color-surface);
+  border: 2px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-12);
+  text-align: left;
+  transition: border-color var(--rf-transition), background-color var(--rf-transition);
+}
+
+.role-option:hover {
+  border-color: var(--rf-color-primary);
+}
+
+.role-option[aria-pressed="true"],
+.role-option.is-selected {
+  background: var(--rf-color-tealSoft);
+  border-color: var(--rf-color-secondary);
+}
+
+/* Layout de dos columnas: contenido + panel lateral (detalle, solicitar visita) */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--rf-gutter);
+  align-items: start;
+}
+
+/* Tabla de datos (solicitudes, interesados, reportes, comparar) */
+.table-wrap {
+  overflow-x: auto;
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-12);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--rf-text-label);
+}
+
+.table th,
+.table td {
+  padding: var(--rf-space-12) var(--rf-space-16);
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--rf-color-border);
+}
+
+.table th {
+  font-size: var(--rf-text-caption);
+  font-weight: 600;
+  color: var(--rf-color-muted);
+  background: var(--rf-color-soft);
+  white-space: nowrap;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table tbody tr:hover {
+  background: var(--rf-color-background);
+}
+
+/* Indicadores del panel del anfitrión / reportes de demanda */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--rf-space-16);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rf-space-4);
+  padding: var(--rf-space-20);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-12);
+}
+
+.stat__label {
+  font-size: var(--rf-text-caption);
+  color: var(--rf-color-muted);
+}
+
+.stat__value {
+  font-size: var(--rf-text-h2);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Lista de servicios / reglas de la habitación */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rf-space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  padding: var(--rf-space-6) var(--rf-space-12);
+  background: var(--rf-color-soft);
+  border-radius: var(--rf-radius-pill);
+  font-size: var(--rf-text-caption);
+}
+
+/* --------------------------------------------------------------------------
+   14. ACCESIBILIDAD Y PREFERENCIAS DEL USUARIO (WCAG AA)
+   -------------------------------------------------------------------------- */
+
+/* Foco visible en todos los elementos interactivos */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--rf-color-primary);
+  outline-offset: 2px;
+}
+
+.btn--primary:focus-visible,
+.btn--danger:focus-visible {
+  outline-color: var(--rf-color-pressed);
+}
+
+/* El campo ya muestra su borde de foco; evitar doble contorno */
+.field__control > input:focus-visible,
+.field__control > select:focus-visible,
+.field__control > textarea:focus-visible {
+  outline: 0;
+}
+
+/* Enlace "Saltar al contenido" */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--rf-space-16);
+  z-index: 200;
+  padding: var(--rf-space-12) var(--rf-space-16);
+  background: var(--rf-color-text);
+  border-radius: var(--rf-radius-8);
+  color: var(--rf-color-surface);
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: var(--rf-space-8);
+}
+
+/* Solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   15. RESPONSIVE
+   -------------------------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  :root {
+    --rf-margin: 40px;
+  }
+
+  .hero {
+    gap: var(--rf-space-32);
+  }
+
+  .hero__title,
+  .text-display {
+    font-size: 40px;
+  }
+
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Móvil · 4 columnas, margen 16, gutter 16 (ancho de referencia 390 px) */
+@media (max-width: 768px) {
+  :root {
+    --rf-margin: 16px;
+    --rf-gutter: 16px;
+    --rf-text-display: 32px;
+    --rf-text-h1: 32px;
+    --rf-text-h2: 24px;
+    --rf-text-h3: 22px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .col-12,
+  .col-8,
+  .col-6,
+  .col-4,
+  .col-3 {
+    grid-column: span 4;
+  }
+
+  /* Navegación: los enlaces pasan a un menú desplegable */
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0 var(--rf-space-16);
+  }
+
+  .navbar__toggle {
+    display: inline-flex;
+  }
+
+  .navbar__links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--rf-space-4);
+    width: 100%;
+    padding: var(--rf-space-8) 0 var(--rf-space-16);
+  }
+
+  .navbar__links.is-open {
+    display: flex;
+  }
+
+  .navbar__links .btn {
+    width: 100%;
+  }
+
+  .app-main {
+    padding: var(--rf-space-24) var(--rf-margin) var(--rf-space-32);
+  }
+
+  .section,
+  .cta-band {
+    padding: var(--rf-space-48) var(--rf-margin);
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--rf-space-24);
+    padding: var(--rf-space-32) var(--rf-margin) var(--rf-space-48);
+  }
+
+  .hero__image {
+    flex: none;
+    height: 240px;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .steps,
+  .benefits,
+  .testimonials,
+  .role-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cards-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--rf-space-24) var(--rf-margin);
+  }
+
+  .modal {
+    padding: var(--rf-space-20);
+  }
+
+  .modal__actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .auth__card {
+    padding: var(--rf-space-24);
+  }
+}
