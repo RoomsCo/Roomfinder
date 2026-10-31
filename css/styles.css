@@ -1,0 +1,258 @@
+/* ==========================================================================
+   RoomFinder · styles.css
+   Único CSS del sitio. Orden: variables, reset, base y una sección por pantalla.
+   Mobile-first: estilos de móvil primero y @media (min-width: 768px) para escritorio.
+   Cada integrante escribe solo dentro de la sección de su pantalla.
+   ========================================================================== */
+
+/* ==========================================================================
+   Variables (valores del Figma: «RoomFinder · Sistema» y estilos de texto)
+   ========================================================================== */
+
+:root {
+    /* Colores */
+    --color-primary: #2563EB;
+    --color-hover: #1D4ED8;
+    --color-pressed: #1E40AF;
+    --color-secondary: #0F766E;
+    --color-success: #15803D;
+    --color-error: #B91C1C;
+    --color-warning: #B45309;
+    --color-background: #F7F5F2;
+    --color-surface: #FFFFFF;
+    --color-border: #D6D3D1;
+    --color-text: #1C1917;
+    --color-muted: #57534E;
+    --color-disabled: #CBD5E1;
+    --color-soft: #F1EFEB;
+    --color-teal-soft: #CCFBF1;
+    --color-success-soft: #E8F5ED;
+    --color-error-soft: #FEE2E2;
+
+    /* Tipografía */
+    --font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-size-h1: 40px;
+    --line-height-h1: 48px;
+    --font-size-h2: 28px;
+    --line-height-h2: 36px;
+    --font-size-body: 16px;
+    --line-height-body: 24px;
+    --font-size-label: 14px;
+    --line-height-label: 20px;
+    --font-size-caption: 13px;
+    --line-height-caption: 20px;
+    --font-size-small: 12px;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Espacios */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --page-gutter: var(--space-4);
+
+    /* Bordes */
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+
+    /* Contenedor */
+    --container-max: 1200px;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text);
+    background: var(--color-background);
+}
+
+@media (min-width: 768px) {
+    :root {
+        --page-gutter: var(--space-10);
+    }
+}
+
+/* ==========================================================================
+   Landing
+   Frame: 01 Landing page · index.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Auth: estructura común
+   Frame: cabecera y pie del grupo auth
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Auth: iniciar sesión
+   Frame: 02 Iniciar sesión · pages/auth/login.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Auth: recuperar contraseña
+   Frame: 03 Recuperar contraseña · pages/auth/forgot-password.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Auth: crear cuenta
+   Frame: 04 Crear cuenta · pages/auth/signup.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Auth: selección de rol
+   Frame: 05 Selección de rol · pages/auth/role.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Auth: verificar correo
+   Frame: 06 Verificar correo universitario · pages/auth/verify-email.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Estudiante: estructura común
+   Frame: cabecera y pie del grupo estudiante
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Estudiante: explorar habitaciones
+   Frame: 07 Explorar habitaciones · pages/estudiante/explore.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Estudiante: detalle de habitación
+   Frame: 08 Detalle de habitación · pages/estudiante/room-detail.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Estudiante: favoritos
+   Frame: 09 Favoritos · pages/estudiante/favorites.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Estudiante: comparar habitaciones
+   Frame: 10 Comparar habitaciones · pages/estudiante/compare.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Estudiante: solicitar visita
+   Frame: 11 Solicitar visita · pages/estudiante/visit-request.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Estudiante: confirmación de solicitud
+   Frame: 12 Confirmación de solicitud · pages/estudiante/visit-confirmation.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Estudiante: mis solicitudes de visita
+   Frame: 13 Mis solicitudes de visita · pages/estudiante/my-visits.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Estudiante: perfil y preferencias
+   Frame: 14 Perfil y preferencias · pages/estudiante/profile.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Anfitrión: estructura común
+   Frame: cabecera y pie del grupo anfitrión
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Anfitrión: panel
+   Frame: 15 Panel del anfitrión · pages/anfitrion/dashboard.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Anfitrión: crear o editar publicación
+   Frame: 16 Crear o editar publicación · pages/anfitrion/listing-form.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Anfitrión: interesados y comparación
+   Frame: 17 Interesados y comparación · pages/anfitrion/interested.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Anfitrión: solicitudes de visita
+   Frame: 18 Solicitudes de visita · Anfitrión · pages/anfitrion/visit-requests.html
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Anfitrión: reportes de demanda
+   Frame: 19 Reportes de demanda · pages/anfitrion/demand-reports.html
+   ========================================================================== */
+
