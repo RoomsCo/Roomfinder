@@ -145,25 +145,25 @@ body {
 
 /* ==========================================================================
    Auth: recuperar contraseña
-   Frame: 03 Recuperar contraseña · pages/auth/forgot-password.html
+   Frame: 03 Recuperar contraseña · pages/auth/recuperar-contrasena.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Auth: crear cuenta
-   Frame: 04 Crear cuenta · pages/auth/signup.html
+   Frame: 04 Crear cuenta · pages/auth/crear-cuenta.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Auth: selección de rol
-   Frame: 05 Selección de rol · pages/auth/role.html
+   Frame: 05 Selección de rol · pages/auth/seleccion-rol.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Auth: verificar correo
-   Frame: 06 Verificar correo universitario · pages/auth/verify-email.html
+   Frame: 06 Verificar correo universitario · pages/auth/verificar-correo.html
    ========================================================================== */
 
 
@@ -175,49 +175,49 @@ body {
 
 /* ==========================================================================
    Estudiante: explorar habitaciones
-   Frame: 07 Explorar habitaciones · pages/estudiante/explore.html
+   Frame: 07 Explorar habitaciones · pages/estudiante/explorar.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Estudiante: detalle de habitación
-   Frame: 08 Detalle de habitación · pages/estudiante/room-detail.html
+   Frame: 08 Detalle de habitación · pages/estudiante/detalle-habitacion.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Estudiante: favoritos
-   Frame: 09 Favoritos · pages/estudiante/favorites.html
+   Frame: 09 Favoritos · pages/estudiante/favoritos.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Estudiante: comparar habitaciones
-   Frame: 10 Comparar habitaciones · pages/estudiante/compare.html
+   Frame: 10 Comparar habitaciones · pages/estudiante/comparar.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Estudiante: solicitar visita
-   Frame: 11 Solicitar visita · pages/estudiante/visit-request.html
+   Frame: 11 Solicitar visita · pages/estudiante/solicitar-visita.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Estudiante: confirmación de solicitud
-   Frame: 12 Confirmación de solicitud · pages/estudiante/visit-confirmation.html
+   Frame: 12 Confirmación de solicitud · pages/estudiante/confirmacion-solicitud.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Estudiante: mis solicitudes de visita
-   Frame: 13 Mis solicitudes de visita · pages/estudiante/my-visits.html
+   Frame: 13 Mis solicitudes de visita · pages/estudiante/mis-solicitudes.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Estudiante: perfil y preferencias
-   Frame: 14 Perfil y preferencias · pages/estudiante/profile.html
+   Frame: 14 Perfil y preferencias · pages/estudiante/perfil.html
    ========================================================================== */
 
 
@@ -229,30 +229,30 @@ body {
 
 /* ==========================================================================
    Anfitrión: panel
-   Frame: 15 Panel del anfitrión · pages/anfitrion/dashboard.html
+   Frame: 15 Panel del anfitrión · pages/anfitrion/panel.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Anfitrión: crear o editar publicación
-   Frame: 16 Crear o editar publicación · pages/anfitrion/listing-form.html
+   Frame: 16 Crear o editar publicación · pages/anfitrion/publicacion.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Anfitrión: interesados y comparación
-   Frame: 17 Interesados y comparación · pages/anfitrion/interested.html
+   Frame: 17 Interesados y comparación · pages/anfitrion/interesados.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Anfitrión: solicitudes de visita
-   Frame: 18 Solicitudes de visita · Anfitrión · pages/anfitrion/visit-requests.html
+   Frame: 18 Solicitudes de visita · Anfitrión · pages/anfitrion/solicitudes.html
    ========================================================================== */
 
 
 /* ==========================================================================
    Anfitrión: reportes de demanda
-   Frame: 19 Reportes de demanda · pages/anfitrion/demand-reports.html
+   Frame: 19 Reportes de demanda · pages/anfitrion/reportes.html
    ========================================================================== */
 

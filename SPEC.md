@@ -28,25 +28,25 @@ Sigue la siguiente estructura:
 └── pages/
     ├── auth/                           # Grupo de acceso (se nombra por su función)
     │   ├── login.html                  # 02 Iniciar sesión
-    │   ├── forgot-password.html        # 03 Recuperar contraseña
-    │   ├── signup.html                 # 04 Crear cuenta
-    │   ├── role.html                   # 05 Selección de rol
-    │   └── verify-email.html           # 06 Verificar correo universitario
+    │   ├── recuperar-contrasena.html   # 03 Recuperar contraseña
+    │   ├── crear-cuenta.html           # 04 Crear cuenta
+    │   ├── seleccion-rol.html          # 05 Selección de rol
+    │   └── verificar-correo.html       # 06 Verificar correo universitario
     ├── estudiante/                     # Grupo por tipo de usuario
-    │   ├── explore.html                # 07 Explorar habitaciones
-    │   ├── room-detail.html            # 08 Detalle de habitación
-    │   ├── favorites.html              # 09 Favoritos
-    │   ├── compare.html                # 10 Comparar habitaciones
-    │   ├── visit-request.html          # 11 Solicitar visita
-    │   ├── visit-confirmation.html     # 12 Confirmación de solicitud
-    │   ├── my-visits.html              # 13 Mis solicitudes de visita
-    │   └── profile.html                # 14 Perfil y preferencias
+    │   ├── explorar.html               # 07 Explorar habitaciones
+    │   ├── detalle-habitacion.html     # 08 Detalle de habitación
+    │   ├── favoritos.html              # 09 Favoritos
+    │   ├── comparar.html               # 10 Comparar habitaciones
+    │   ├── solicitar-visita.html       # 11 Solicitar visita
+    │   ├── confirmacion-solicitud.html # 12 Confirmación de solicitud
+    │   ├── mis-solicitudes.html        # 13 Mis solicitudes de visita
+    │   └── perfil.html                 # 14 Perfil y preferencias
     └── anfitrion/
-        ├── dashboard.html              # 15 Panel del anfitrión
-        ├── listing-form.html           # 16 Crear o editar publicación
-        ├── interested.html             # 17 Interesados y comparación
-        ├── visit-requests.html         # 18 Solicitudes de visita · Anfitrión
-        └── demand-reports.html         # 19 Reportes de demanda
+        ├── panel.html                  # 15 Panel del anfitrión
+        ├── publicacion.html            # 16 Crear o editar publicación
+        ├── interesados.html            # 17 Interesados y comparación
+        ├── solicitudes.html            # 18 Solicitudes de visita · Anfitrión
+        └── reportes.html               # 19 Reportes de demanda
 ```
 Un grupo es un conjunto de pantallas que comparten el mismo aspecto (cabecera y pie).
 
@@ -65,7 +65,7 @@ y enlaces entre pantallas. La lógica no existe en este proyecto.
 - **CSS:** clases con nombres claros (estilo BEM), sin estilos inline ni `!important`. Colores, fuentes y espacios van como variables al inicio de `css/styles.css`, y los estilos de cada pantalla van en su propia sección con un comentario.
 - **Formularios:** cada campo con su `<label>`, `name` y validación HTML. El mensaje de error va debajo del campo, en el idioma del Figma.
 - **Navegación:** todos los botones y enlaces usan `<a href>`, también el que envía un formulario.
-- **Rutas:** son relativas. `index.html` usa `css/styles.css` e `img/...`. Las páginas de `pages/<grupo>/` usan `../../css/styles.css` e `../../img/...`. Para ir a otra página de otro grupo: `../participante/events.html`; para volver al inicio: `../../index.html`.
+- **Rutas:** son relativas. `index.html` usa `css/styles.css` e `img/...`. Las páginas de `pages/<grupo>/` usan `../../css/styles.css` e `../../img/...`. Para ir a otra página de otro grupo: `../estudiante/explorar.html`; para volver al inicio: `../../index.html`.
 - **Landing (index.html):** es una sola página en la raíz, fuera de `pages/`. Lleva su propia cabecera y pie, y sus botones salen hacia los demás grupos.
 - **Responsive:** el Figma trae dos diseños por pantalla, escritorio y móvil. Impleméntalos en el mismo `.html` con `@media` en `css/styles.css`: empieza por el móvil y usa `@media (min-width: 768px)` para el escritorio. Usa Flexbox o Grid, sin archivos ni páginas aparte para móvil.
 - **Diseño:** respeta el Figma en ambos tamaños y usa las variables de `css/styles.css`.
