@@ -172,11 +172,404 @@ body {
    Frame: cabecera y pie del grupo estudiante
    ========================================================================== */
 
+/* Estudiante: cabecera de la app */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    height: 64px;
+    padding: 0 var(--page-gutter);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.app-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.app-brand__name {
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+}
+
+.app-nav,
+.app-user {
+    display: none;
+}
+
+.app-nav {
+    gap: var(--space-6);
+    margin-left: auto;
+}
+
+.app-nav__link {
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+}
+
+.app-nav__link:hover {
+    color: var(--color-text);
+}
+
+.app-nav__link--active {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.app-user {
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-teal-soft);
+    border-radius: 999px;
+    color: var(--color-secondary);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Estudiante: contenedor de página */
+.app-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    max-width: calc(1280px + 2 * var(--page-gutter));
+    margin: 0 auto;
+    padding: var(--space-6) var(--page-gutter) var(--space-12);
+}
+
+.page-head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.page-head__title {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-bold);
+}
+
+.page-head__subtitle {
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+    line-height: var(--line-height-label);
+}
+
+/* Estudiante: botones */
+.app-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+}
+
+.app-button--primary {
+    background: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.app-button--primary:hover {
+    background: var(--color-hover);
+}
+
+.app-button--primary:active {
+    background: var(--color-pressed);
+}
+
+.app-button--secondary {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.app-button--secondary:hover {
+    background: var(--color-soft);
+}
+
+.app-button--block {
+    display: flex;
+    width: 100%;
+}
+
+/* Estudiante: etiquetas de estado */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-3);
+    border-radius: 999px;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+}
+
+.badge--success {
+    background: var(--color-success-soft);
+    color: var(--color-success);
+}
+
+.badge--teal {
+    background: var(--color-teal-soft);
+    color: var(--color-secondary);
+}
+
+/* Estudiante: campos de formulario */
+.app-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.app-field__label {
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semibold);
+}
+
+.app-field__control {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0 var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+}
+
+.app-field__control:focus-within {
+    border-color: var(--color-primary);
+}
+
+.app-field__control .app-field__input {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+.app-field__input {
+    height: 44px;
+    padding: 0 var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: var(--font-size-label);
+}
+
+.app-field__input--area {
+    height: auto;
+    padding: var(--space-3);
+    resize: vertical;
+}
+
+.app-field__input--area:focus {
+    outline: 0;
+    border-color: var(--color-primary);
+}
+
+/* Estudiante: chips (filtros y horarios) */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    border: 0;
+}
+
+.chips .app-field__label {
+    width: 100%;
+    margin-bottom: var(--space-2);
+}
+
+.chips__legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: var(--font-size-label);
+    cursor: pointer;
+}
+
+.chip__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.chip:hover {
+    border-color: var(--color-secondary);
+}
+
+.chip:has(.chip__input:checked) {
+    background: var(--color-teal-soft);
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.chip:has(.chip__input:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Estudiante: nota informativa */
+.app-note {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-teal-soft);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-caption);
+    line-height: var(--line-height-caption);
+}
+
+.app-note img {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Estudiante: casilla de verificación */
+.app-check {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-label);
+    cursor: pointer;
+}
+
+.app-check__input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+}
+
+/* Estudiante: tarjeta de habitación (explorar y favoritos) */
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-4);
+}
+
+.room-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.room-card:hover {
+    border-color: var(--color-primary);
+}
+
+.room-card__photo {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.room-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.room-card__top,
+.room-card__row,
+.room-card__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+}
+
+.room-card__price {
+    font-size: 18px;
+    font-weight: var(--font-weight-bold);
+}
+
+.room-card__title {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
+}
+
+.room-card__title a:hover {
+    color: var(--color-primary);
+}
+
+.room-card__meta {
+    color: var(--color-muted);
+    font-size: var(--font-size-caption);
+}
+
+.room-card__services {
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+@media (min-width: 768px) {
+    .app-nav,
+    .app-user {
+        display: flex;
+    }
+
+    .app-header__menu {
+        display: none;
+    }
+
+    .app-main {
+        padding-top: var(--space-10);
+    }
+
+    .page-head {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .page-head__title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
 
 /* ==========================================================================
    Estudiante: explorar habitaciones
    Frame: 07 Explorar habitaciones · pages/estudiante/explorar.html
    ========================================================================== */
+
+/* Estudiante: explorar habitaciones */
+.search {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
 
 
 /* ==========================================================================
@@ -184,11 +577,141 @@ body {
    Frame: 08 Detalle de habitación · pages/estudiante/detalle-habitacion.html
    ========================================================================== */
 
+/* Estudiante: detalle de habitación */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+}
+
+.gallery__main {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+.gallery__side {
+    display: none;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.detail__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.detail__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.detail__price {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-bold);
+}
+
+.detail__title {
+    font-size: 20px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.detail__location {
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+}
+
+.detail__text {
+    font-size: var(--font-size-label);
+}
+
+.detail__subtitle {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
+}
+
+.detail__rules {
+    font-size: var(--font-size-caption);
+}
+
+.host-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.host-card__match {
+    font-weight: var(--font-weight-semibold);
+}
+
+.host-card__text {
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+@media (min-width: 768px) {
+    .gallery {
+        grid-template-columns: 1fr 280px;
+    }
+
+    .gallery__main,
+    .gallery__side {
+        display: block;
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+    }
+
+    .gallery__side {
+        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+
+    .detail {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .detail__info {
+        flex: 1;
+    }
+
+    .host-card {
+        width: 300px;
+    }
+}
+
 
 /* ==========================================================================
    Estudiante: favoritos
    Frame: 09 Favoritos · pages/estudiante/favoritos.html
    ========================================================================== */
+
+/* Estudiante: favoritos */
+.room-card__actions {
+    padding-top: var(--space-1);
+}
+
+.room-card__remove {
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-semibold);
+}
+
+.room-card__remove:hover {
+    color: var(--color-error);
+}
 
 
 /* ==========================================================================
@@ -196,11 +719,178 @@ body {
    Frame: 10 Comparar habitaciones · pages/estudiante/comparar.html
    ========================================================================== */
 
+/* Estudiante: comparar habitaciones */
+.compare {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.compare__table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: var(--font-size-caption);
+}
+
+.compare__label,
+.compare__cell,
+.compare__room {
+    padding: var(--space-3) var(--space-2);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.compare__label {
+    width: 30%;
+    font-weight: var(--font-weight-semibold);
+}
+
+.compare__label--head {
+    vertical-align: top;
+    color: var(--color-muted);
+    font-weight: var(--font-weight-regular);
+}
+
+.compare__room {
+    position: relative;
+    vertical-align: top;
+}
+
+.compare__photo {
+    width: 100%;
+    height: 64px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-2);
+}
+
+.compare__name {
+    display: block;
+    padding-right: var(--space-6);
+    font-size: var(--font-size-small);
+    line-height: 16px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.compare__remove {
+    position: absolute;
+    right: var(--space-2);
+    bottom: var(--space-3);
+}
+
+.compare__row {
+    border-top: 1px solid var(--color-soft);
+}
+
+.compare__row:nth-child(even) {
+    background: var(--color-soft);
+}
+
+.compare__cell--strong {
+    font-weight: var(--font-weight-semibold);
+}
+
+@media (min-width: 768px) {
+    .compare__table {
+        font-size: var(--font-size-label);
+    }
+
+    .compare__label,
+    .compare__cell,
+    .compare__room {
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .compare__label {
+        width: 20%;
+    }
+
+    .compare__photo {
+        height: 96px;
+    }
+
+    .compare__name {
+        font-size: var(--font-size-body);
+        line-height: var(--line-height-body);
+    }
+
+    .compare__remove {
+        right: var(--space-4);
+    }
+}
+
 
 /* ==========================================================================
    Estudiante: solicitar visita
    Frame: 11 Solicitar visita · pages/estudiante/solicitar-visita.html
    ========================================================================== */
+
+/* Estudiante: solicitar visita */
+.app-main--split {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+}
+
+.request {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.request__progress {
+    height: 4px;
+    margin: var(--space-2) 0;
+    background: var(--color-teal-soft);
+    border-radius: 999px;
+}
+
+.request__progress-bar {
+    display: block;
+    width: 45%;
+    height: 100%;
+    background: var(--color-secondary);
+    border-radius: 999px;
+}
+
+.request__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.summary__title {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+}
+
+.summary__room {
+    font-size: var(--font-size-label);
+}
+
+.summary__meta {
+    color: var(--color-muted);
+    font-size: var(--font-size-caption);
+}
+
+@media (min-width: 768px) {
+    .app-main--split {
+        grid-template-columns: 1fr 320px;
+        column-gap: var(--space-6);
+    }
+}
 
 
 /* ==========================================================================
@@ -208,11 +898,209 @@ body {
    Frame: 12 Confirmación de solicitud · pages/estudiante/confirmacion-solicitud.html
    ========================================================================== */
 
+/* Estudiante: confirmación de solicitud */
+.app-main--center {
+    min-height: calc(100vh - 64px);
+    justify-content: center;
+}
+
+.confirm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.confirm__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: var(--color-teal-soft);
+    border-radius: 50%;
+}
+
+.confirm__title {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-bold);
+}
+
+.confirm__text {
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+}
+
+.confirm .badge {
+    align-self: center;
+}
+
+.confirm__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+}
+
+.confirm__next {
+    color: var(--color-muted);
+    font-size: var(--font-size-caption);
+}
+
 
 /* ==========================================================================
    Estudiante: mis solicitudes de visita
    Frame: 13 Mis solicitudes de visita · pages/estudiante/mis-solicitudes.html
    ========================================================================== */
+
+/* Estudiante: mis solicitudes de visita */
+.visits {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.visits__tabs {
+    display: flex;
+    align-self: flex-start;
+    gap: var(--space-1);
+    margin: var(--space-2) 0;
+    padding: var(--space-1);
+    background: var(--color-soft);
+    border-radius: var(--radius-md);
+}
+
+.visits__tab {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+}
+
+.visits__tab:hover {
+    color: var(--color-text);
+}
+
+.visits__tab--active {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+}
+
+.visits__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.visit-card {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.visit-card--selected {
+    border: 2px solid var(--color-primary);
+}
+
+.visit-card__photo {
+    width: 72px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.visit-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.visit-card__title {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
+}
+
+.visit-card__date {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--font-size-caption);
+}
+
+.visit-card__host {
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.visit-card__actions {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-6);
+}
+
+.visit-card__cancel {
+    color: var(--color-error);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: underline;
+}
+
+.reschedule {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.reschedule:target {
+    border-color: var(--color-primary);
+}
+
+.reschedule__title {
+    font-size: 20px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.reschedule__text {
+    color: var(--color-muted);
+    font-size: var(--font-size-caption);
+}
+
+.reschedule__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+}
+
+@media (min-width: 768px) {
+    .visit-card {
+        grid-template-columns: 96px 1fr;
+    }
+
+    .visit-card__photo {
+        width: 96px;
+        height: 72px;
+    }
+
+    .reschedule {
+        padding: var(--space-6);
+    }
+}
 
 
 /* ==========================================================================
@@ -220,11 +1108,245 @@ body {
    Frame: 14 Perfil y preferencias · pages/estudiante/perfil.html
    ========================================================================== */
 
+/* Estudiante: perfil y preferencias */
+.app-main--profile {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+}
+
+.avatar {
+    display: block;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--color-teal-soft);
+    border-radius: 50%;
+}
+
+.avatar--large {
+    width: 56px;
+    height: 56px;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.profile-card__person {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.profile-card__name {
+    font-weight: var(--font-weight-semibold);
+}
+
+.profile-card__career {
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.profile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.profile-menu__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-label);
+}
+
+.profile-menu__link:hover,
+.profile-menu__link--active {
+    background: var(--color-soft);
+}
+
+.profile-menu__link--active {
+    font-weight: var(--font-weight-semibold);
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.panel__title {
+    font-size: 20px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.panel__text {
+    color: var(--color-muted);
+    font-size: var(--font-size-caption);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+}
+
+.app-field__hint {
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.app-field__control:has(.app-field__input:disabled) {
+    background: var(--color-soft);
+}
+
+.app-field__control .app-field__input:disabled {
+    background: transparent;
+    color: var(--color-muted);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+    .app-main--profile {
+        grid-template-columns: 320px 1fr;
+        column-gap: var(--space-6);
+    }
+
+    .panel {
+        padding: var(--space-6);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid__wide {
+        grid-column: 1 / -1;
+    }
+}
+
 
 /* ==========================================================================
    Anfitrión: estructura común
    Frame: cabecera y pie del grupo anfitrión
    ========================================================================== */
+
+/* Anfitrión: usa la cabecera, botones, campos, chips y paneles del estudiante */
+.app-button--danger {
+    background: var(--color-error);
+    color: var(--color-surface);
+}
+
+.app-button--danger:hover {
+    background: #991B1B;
+}
+
+/* Anfitrión: tarjetas de indicadores (panel y reportes) */
+.stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+}
+
+.stat-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.stat-card__label {
+    width: 100%;
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.stat-card__value {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: var(--font-weight-bold);
+}
+
+.stat-card__trend {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+/* Anfitrión: tablas (interesados y reportes) */
+.data-table {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+}
+
+.data-table__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-caption);
+}
+
+.data-table__table th,
+.data-table__table td {
+    padding: var(--space-2) var(--space-3);
+    text-align: left;
+}
+
+.data-table__table thead th {
+    background: var(--color-soft);
+    font-weight: var(--font-weight-semibold);
+}
+
+.data-table__table tbody th {
+    font-weight: var(--font-weight-semibold);
+}
+
+.data-table__table tbody tr:hover {
+    background: var(--color-background);
+}
+
+@media (min-width: 768px) {
+    .stat-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-4);
+    }
+
+    .stat-card__value {
+        font-size: var(--font-size-h2);
+        line-height: var(--line-height-h2);
+    }
+}
 
 
 /* ==========================================================================
@@ -232,11 +1354,178 @@ body {
    Frame: 15 Panel del anfitrión · pages/anfitrion/panel.html
    ========================================================================== */
 
+/* Anfitrión: panel */
+.listing {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.listing__photo {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.listing__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.listing__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.listing__title {
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.listing__title a:hover {
+    color: var(--color-primary);
+}
+
+.listing__meta {
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+}
+
+.listing__actions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.app-note--link {
+    align-items: center;
+    padding: var(--space-4);
+    font-size: var(--font-size-label);
+}
+
+.app-note--link:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .listing {
+        flex-direction: row;
+    }
+
+    .listing__photo {
+        width: 180px;
+    }
+}
+
 
 /* ==========================================================================
    Anfitrión: crear o editar publicación
    Frame: 16 Crear o editar publicación · pages/anfitrion/publicacion.html
    ========================================================================== */
+
+/* Anfitrión: crear o editar publicación */
+.request__progress-bar--half {
+    width: 48%;
+}
+
+.publish {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4) var(--space-4);
+}
+
+.publish__column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.app-field__prefix {
+    color: var(--color-text);
+    font-size: var(--font-size-label);
+}
+
+.app-field__error {
+    display: none;
+    color: var(--color-error);
+    font-size: var(--font-size-small);
+}
+
+.app-field:has(.app-field__input:invalid) .app-field__control {
+    border: 2px solid var(--color-error);
+}
+
+.app-field:has(.app-field__input:invalid) .app-field__error {
+    display: block;
+}
+
+.chip--day {
+    justify-content: center;
+    min-width: 40px;
+}
+
+.publish__ai {
+    flex-wrap: wrap;
+    align-items: center;
+    padding: var(--space-4);
+    font-size: var(--font-size-label);
+}
+
+.publish__ai p {
+    flex: 1;
+}
+
+.publish__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+.publish__draft {
+    padding: var(--space-2) var(--space-4);
+    color: var(--color-primary);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semibold);
+}
+
+.publish__draft:hover {
+    text-decoration: underline;
+}
+
+.publish__blocked {
+    display: none;
+    background: var(--color-primary);
+    color: var(--color-surface);
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.publish:has(:invalid) .publish__submit {
+    display: none;
+}
+
+.publish:has(:invalid) .publish__blocked {
+    display: inline-flex;
+}
+
+@media (min-width: 768px) {
+    .publish {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .publish__footer {
+        grid-column: 1 / -1;
+    }
+}
 
 
 /* ==========================================================================
@@ -244,15 +1533,266 @@ body {
    Frame: 17 Interesados y comparación · pages/anfitrion/interesados.html
    ========================================================================== */
 
+/* Anfitrión: interesados y comparación */
+.candidates {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.candidates__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    border: 0;
+}
+
+.candidate {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-caption);
+    cursor: pointer;
+}
+
+.candidate__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.candidate:has(.candidate__input:checked) {
+    border: 2px solid var(--color-primary);
+}
+
+.candidate:has(.candidate__input:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.candidate__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+}
+
+.candidate__name {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
+}
+
+.candidate__meta {
+    color: var(--color-muted);
+}
+
+.candidate__on,
+.candidate:has(.candidate__input:checked) .candidate__off {
+    display: none;
+}
+
+.candidate:has(.candidate__input:checked) .candidate__on {
+    display: inline;
+}
+
+.candidates__submit {
+    align-self: flex-start;
+    min-width: 220px;
+}
+
+@media (min-width: 768px) {
+    .candidates__list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 
 /* ==========================================================================
    Anfitrión: solicitudes de visita
    Frame: 18 Solicitudes de visita · Anfitrión · pages/anfitrion/solicitudes.html
    ========================================================================== */
 
+/* Anfitrión: solicitudes de visita */
+.host-requests {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.host-request {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.host-request__person {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.host-request__name {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
+}
+
+.host-request__career {
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.host-request__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-size: var(--font-size-caption);
+}
+
+.host-request__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.host-request__date {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-muted);
+}
+
+.host-request__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+}
+
+.host-request__reject {
+    margin-right: var(--space-3);
+    color: var(--color-error);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .host-request {
+        flex-direction: row;
+        align-items: center;
+        padding: var(--space-4) var(--space-4) var(--space-4) var(--space-4);
+    }
+
+    .host-request__person {
+        width: 260px;
+    }
+}
+
 
 /* ==========================================================================
    Anfitrión: reportes de demanda
    Frame: 19 Reportes de demanda · pages/anfitrion/reportes.html
    ========================================================================== */
+
+/* Anfitrión: reportes de demanda */
+.period {
+    display: flex;
+    align-self: flex-start;
+    gap: var(--space-1);
+    padding: var(--space-1);
+    background: var(--color-soft);
+    border: 0;
+    border-radius: var(--radius-md);
+}
+
+.period__option {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+    cursor: pointer;
+}
+
+.period__option:has(.chip__input:checked) {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+}
+
+.reports {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--space-4);
+}
+
+.panel--flush {
+    padding: var(--space-6) 0 0;
+    overflow: hidden;
+}
+
+.panel--flush .panel__title {
+    padding: 0 var(--space-4);
+}
+
+.bars {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--space-2);
+    height: 220px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.bars__item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-1);
+    height: 100%;
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.bars__bar {
+    width: 100%;
+    background: var(--color-secondary);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.bars__item:last-child .bars__bar {
+    background: var(--color-primary);
+}
+
+.bars__bar--s1 { height: 59%; }
+.bars__bar--s2 { height: 74%; }
+.bars__bar--s3 { height: 56%; }
+.bars__bar--s4 { height: 89%; }
+.bars__bar--s5 { height: 81%; }
+.bars__bar--s6 { height: 100%; }
+
+.bars__label {
+    color: var(--color-muted);
+}
+
+@media (min-width: 768px) {
+    .reports {
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .bars {
+        gap: var(--space-4);
+    }
+}
 

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitudes de visita | RoomFinder</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="app">
+    <header class="app-header">
+        <a class="app-brand" href="panel.html">
+            <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="app-brand__name">RoomFinder</span>
+        </a>
+        <nav class="app-nav" aria-label="Navegación del anfitrión">
+            <a class="app-nav__link" href="panel.html">Panel</a>
+            <a class="app-nav__link" href="publicacion.html">Publicaciones</a>
+            <a class="app-nav__link app-nav__link--active" href="solicitudes.html" aria-current="page">Solicitudes</a>
+            <a class="app-nav__link" href="reportes.html">Reportes</a>
+            <a class="app-nav__link" href="#">Ayuda</a>
+        </nav>
+        <a class="app-user" href="panel.html">
+            <img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">
+            <span>Andrea</span>
+        </a>
+        <a class="app-header__menu" href="#" aria-label="Abrir menú">
+            <img src="../../img/icon-menu.svg" alt="" width="20" height="20">
+        </a>
+    </header>
+
+    <main class="app-main">
+        <section class="page-head">
+            <div class="page-head__text">
+                <h1 class="page-head__title">Solicitudes de visita</h1>
+                <p class="page-head__subtitle">3 pendientes · responde en menos de 24 h para mantener tu publicación destacada.</p>
+            </div>
+        </section>
+
+        <fieldset class="chips">
+            <legend class="chips__legend">Filtrar solicitudes</legend>
+            <label class="chip" for="estado-pendientes"><input class="chip__input" id="estado-pendientes" name="estado" type="radio" value="pendientes" checked>Pendientes (3)</label>
+            <label class="chip" for="estado-confirmadas"><input class="chip__input" id="estado-confirmadas" name="estado" type="radio" value="confirmadas">Confirmadas</label>
+            <label class="chip" for="estado-rechazadas"><input class="chip__input" id="estado-rechazadas" name="estado" type="radio" value="rechazadas">Rechazadas</label>
+            <label class="chip" for="estado-todas"><input class="chip__input" id="estado-todas" name="estado" type="radio" value="todas">Todas las habitaciones</label>
+        </fieldset>
+
+        <section class="host-requests" aria-label="Solicitudes pendientes">
+            <article class="host-request">
+                <div class="host-request__person">
+                    <span class="avatar"></span>
+                    <div>
+                        <h2 class="host-request__name">Lucía Ramos</h2>
+                        <p class="host-request__career">Ingeniería · UPC</p>
+                    </div>
+                </div>
+                <div class="host-request__info">
+                    <div class="host-request__badges">
+                        <span class="badge badge--teal"><img src="../../img/icon-shield-check.svg" alt="" width="14" height="14">Verificada</span>
+                        <span class="badge badge--teal">Compatibilidad 92 %</span>
+                    </div>
+                    <p class="host-request__date"><img src="../../img/icon-calendar.svg" alt="" width="14" height="14">Sáb 26 sep · 11:30 · Habitación luminosa cerca a UPC</p>
+                    <p class="host-request__message">“Hola, estudio en la UPC y quisiera conocer la habitación.”</p>
+                </div>
+                <div class="host-request__actions">
+                    <a class="host-request__reject" href="#">Rechazar</a>
+                    <a class="app-button app-button--secondary" href="#">Proponer otro horario</a>
+                    <a class="app-button app-button--primary" href="#">Aceptar</a>
+                </div>
+            </article>
+            <article class="host-request">
+                <div class="host-request__person">
+                    <span class="avatar"></span>
+                    <div>
+                        <h2 class="host-request__name">Diego Salas</h2>
+                        <p class="host-request__career">Arquitectura · UPC</p>
+                    </div>
+                </div>
+                <div class="host-request__info">
+                    <div class="host-request__badges">
+                        <span class="badge badge--teal"><img src="../../img/icon-shield-check.svg" alt="" width="14" height="14">Verificada</span>
+                        <span class="badge badge--teal">Compatibilidad 84 %</span>
+                    </div>
+                    <p class="host-request__date"><img src="../../img/icon-calendar.svg" alt="" width="14" height="14">Sáb 26 sep · 16:00 · Habitación luminosa cerca a UPC</p>
+                    <p class="host-request__message">“¿Se puede visitar con mi mamá?”</p>
+                </div>
+                <div class="host-request__actions">
+                    <a class="host-request__reject" href="#">Rechazar</a>
+                    <a class="app-button app-button--secondary" href="#">Proponer otro horario</a>
+                    <a class="app-button app-button--primary" href="#">Aceptar</a>
+                </div>
+            </article>
+            <article class="host-request">
+                <div class="host-request__person">
+                    <span class="avatar"></span>
+                    <div>
+                        <h2 class="host-request__name">Camila Torres</h2>
+                        <p class="host-request__career">Psicología · UPC</p>
+                    </div>
+                </div>
+                <div class="host-request__info">
+                    <div class="host-request__badges">
+                        <span class="badge badge--teal"><img src="../../img/icon-shield-check.svg" alt="" width="14" height="14">Verificada</span>
+                        <span class="badge badge--teal">Compatibilidad 64 %</span>
+                    </div>
+                    <p class="host-request__date"><img src="../../img/icon-calendar.svg" alt="" width="14" height="14">Dom 27 sep · 10:00 · Habitación luminosa cerca a UPC</p>
+                    <p class="host-request__message">“Me interesa para noviembre.”</p>
+                </div>
+                <div class="host-request__actions">
+                    <a class="host-request__reject" href="#">Rechazar</a>
+                    <a class="app-button app-button--secondary" href="#">Proponer otro horario</a>
+                    <a class="app-button app-button--primary" href="#">Aceptar</a>
+                </div>
+            </article>
+        </section>
+
+        <p class="app-note">
+            <img src="../../img/icon-circle-check.svg" alt="" width="16" height="16">
+            Al aceptar, el estudiante recibe la confirmación por correo y la visita aparece en tu panel.
+        </p>
+    </main>
+</body>
+</html>
