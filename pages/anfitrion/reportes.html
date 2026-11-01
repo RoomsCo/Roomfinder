@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes de demanda | RoomFinder</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="app">
+    <header class="app-header">
+        <a class="app-brand" href="panel.html">
+            <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="app-brand__name">RoomFinder</span>
+        </a>
+        <nav class="app-nav" aria-label="Navegación del anfitrión">
+            <a class="app-nav__link" href="panel.html">Panel</a>
+            <a class="app-nav__link" href="publicacion.html">Publicaciones</a>
+            <a class="app-nav__link" href="solicitudes.html">Solicitudes</a>
+            <a class="app-nav__link app-nav__link--active" href="reportes.html" aria-current="page">Reportes</a>
+            <a class="app-nav__link" href="#">Ayuda</a>
+        </nav>
+        <a class="app-user" href="panel.html">
+            <img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">
+            <span>Andrea</span>
+        </a>
+        <a class="app-header__menu" href="#" aria-label="Abrir menú">
+            <img src="../../img/icon-menu.svg" alt="" width="20" height="20">
+        </a>
+    </header>
+
+    <main class="app-main">
+        <section class="page-head">
+            <div class="page-head__text">
+                <h1 class="page-head__title">Demanda en tu zona</h1>
+                <p class="page-head__subtitle">Santiago de Surco · búsquedas de estudiantes en RoomFinder, últimos 30 días.</p>
+            </div>
+            <fieldset class="period">
+                <legend class="chips__legend">Periodo</legend>
+                <label class="period__option" for="periodo-7"><input class="chip__input" id="periodo-7" name="periodo" type="radio" value="7">7 días</label>
+                <label class="period__option" for="periodo-30"><input class="chip__input" id="periodo-30" name="periodo" type="radio" value="30" checked>30 días</label>
+                <label class="period__option" for="periodo-90"><input class="chip__input" id="periodo-90" name="periodo" type="radio" value="90">3 meses</label>
+            </fieldset>
+        </section>
+
+        <section class="stat-grid" aria-label="Indicadores">
+            <article class="stat-card">
+                <p class="stat-card__label">Vistas de tus publicaciones</p>
+                <p class="stat-card__value">312</p>
+                <span class="stat-card__trend"><img src="../../img/icon-trending-up.svg" alt="" width="14" height="14">+18 %</span>
+            </article>
+            <article class="stat-card">
+                <p class="stat-card__label">Guardados en favoritos</p>
+                <p class="stat-card__value">41</p>
+                <span class="stat-card__trend"><img src="../../img/icon-trending-up.svg" alt="" width="14" height="14">+6 %</span>
+            </article>
+            <article class="stat-card">
+                <p class="stat-card__label">Solicitudes de visita</p>
+                <p class="stat-card__value">12</p>
+                <span class="stat-card__trend"><img src="../../img/icon-trending-up.svg" alt="" width="14" height="14">+3</span>
+            </article>
+            <article class="stat-card">
+                <p class="stat-card__label">Búsquedas en Surco</p>
+                <p class="stat-card__value">1,240</p>
+                <span class="stat-card__trend"><img src="../../img/icon-trending-up.svg" alt="" width="14" height="14">+9 %</span>
+            </article>
+        </section>
+
+        <div class="reports">
+            <section class="panel" aria-labelledby="busquedas-titulo">
+                <h2 class="panel__title" id="busquedas-titulo">Búsquedas por semana en tu zona</h2>
+                <ol class="bars">
+                <li class="bars__item">
+                    <span class="bars__value">160</span>
+                    <span class="bars__bar bars__bar--s1"></span>
+                    <span class="bars__label">S1</span>
+                </li>
+                <li class="bars__item">
+                    <span class="bars__value">200</span>
+                    <span class="bars__bar bars__bar--s2"></span>
+                    <span class="bars__label">S2</span>
+                </li>
+                <li class="bars__item">
+                    <span class="bars__value">150</span>
+                    <span class="bars__bar bars__bar--s3"></span>
+                    <span class="bars__label">S3</span>
+                </li>
+                <li class="bars__item">
+                    <span class="bars__value">240</span>
+                    <span class="bars__bar bars__bar--s4"></span>
+                    <span class="bars__label">S4</span>
+                </li>
+                <li class="bars__item">
+                    <span class="bars__value">220</span>
+                    <span class="bars__bar bars__bar--s5"></span>
+                    <span class="bars__label">S5</span>
+                </li>
+                <li class="bars__item">
+                    <span class="bars__value">270</span>
+                    <span class="bars__bar bars__bar--s6"></span>
+                    <span class="bars__label">S6</span>
+                </li>
+                </ol>
+            </section>
+
+            <section class="panel panel--flush" aria-labelledby="precio-titulo">
+                <h2 class="panel__title" id="precio-titulo">Precio buscado por distrito</h2>
+                <table class="data-table__table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Distrito</th>
+                            <th scope="col">Búsquedas</th>
+                            <th scope="col">Precio buscado</th>
+                            <th scope="col">Tu precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Santiago de Surco</th>
+                            <td>1,240</td>
+                            <td>S/ 900</td>
+                            <td>S/ 980</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">San Borja</th>
+                            <td>860</td>
+                            <td>S/ 950</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">La Molina</th>
+                            <td>610</td>
+                            <td>S/ 1,000</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Miraflores</th>
+                            <td>540</td>
+                            <td>S/ 1,200</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <p class="app-note">
+            <img src="../../img/icon-info.svg" alt="" width="16" height="16">
+            Tu precio está 9 % sobre el promedio buscado en Surco. Las habitaciones con Wi-Fi y limpieza incluidos reciben más solicitudes.
+        </p>
+    </main>
+</body>
+</html>

@@ -1108,11 +1108,245 @@ body {
    Frame: 14 Perfil y preferencias · pages/estudiante/perfil.html
    ========================================================================== */
 
+/* Estudiante: perfil y preferencias */
+.app-main--profile {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+}
+
+.avatar {
+    display: block;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--color-teal-soft);
+    border-radius: 50%;
+}
+
+.avatar--large {
+    width: 56px;
+    height: 56px;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.profile-card__person {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.profile-card__name {
+    font-weight: var(--font-weight-semibold);
+}
+
+.profile-card__career {
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.profile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.profile-menu__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-label);
+}
+
+.profile-menu__link:hover,
+.profile-menu__link--active {
+    background: var(--color-soft);
+}
+
+.profile-menu__link--active {
+    font-weight: var(--font-weight-semibold);
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.panel__title {
+    font-size: 20px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.panel__text {
+    color: var(--color-muted);
+    font-size: var(--font-size-caption);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+}
+
+.app-field__hint {
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.app-field__control:has(.app-field__input:disabled) {
+    background: var(--color-soft);
+}
+
+.app-field__control .app-field__input:disabled {
+    background: transparent;
+    color: var(--color-muted);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+    .app-main--profile {
+        grid-template-columns: 320px 1fr;
+        column-gap: var(--space-6);
+    }
+
+    .panel {
+        padding: var(--space-6);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid__wide {
+        grid-column: 1 / -1;
+    }
+}
+
 
 /* ==========================================================================
    Anfitrión: estructura común
    Frame: cabecera y pie del grupo anfitrión
    ========================================================================== */
+
+/* Anfitrión: usa la cabecera, botones, campos, chips y paneles del estudiante */
+.app-button--danger {
+    background: var(--color-error);
+    color: var(--color-surface);
+}
+
+.app-button--danger:hover {
+    background: #991B1B;
+}
+
+/* Anfitrión: tarjetas de indicadores (panel y reportes) */
+.stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+}
+
+.stat-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.stat-card__label {
+    width: 100%;
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.stat-card__value {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: var(--font-weight-bold);
+}
+
+.stat-card__trend {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+/* Anfitrión: tablas (interesados y reportes) */
+.data-table {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+}
+
+.data-table__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-caption);
+}
+
+.data-table__table th,
+.data-table__table td {
+    padding: var(--space-2) var(--space-3);
+    text-align: left;
+}
+
+.data-table__table thead th {
+    background: var(--color-soft);
+    font-weight: var(--font-weight-semibold);
+}
+
+.data-table__table tbody th {
+    font-weight: var(--font-weight-semibold);
+}
+
+.data-table__table tbody tr:hover {
+    background: var(--color-background);
+}
+
+@media (min-width: 768px) {
+    .stat-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-4);
+    }
+
+    .stat-card__value {
+        font-size: var(--font-size-h2);
+        line-height: var(--line-height-h2);
+    }
+}
 
 
 /* ==========================================================================
@@ -1120,11 +1354,178 @@ body {
    Frame: 15 Panel del anfitrión · pages/anfitrion/panel.html
    ========================================================================== */
 
+/* Anfitrión: panel */
+.listing {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.listing__photo {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.listing__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.listing__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.listing__title {
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.listing__title a:hover {
+    color: var(--color-primary);
+}
+
+.listing__meta {
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+}
+
+.listing__actions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.app-note--link {
+    align-items: center;
+    padding: var(--space-4);
+    font-size: var(--font-size-label);
+}
+
+.app-note--link:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .listing {
+        flex-direction: row;
+    }
+
+    .listing__photo {
+        width: 180px;
+    }
+}
+
 
 /* ==========================================================================
    Anfitrión: crear o editar publicación
    Frame: 16 Crear o editar publicación · pages/anfitrion/publicacion.html
    ========================================================================== */
+
+/* Anfitrión: crear o editar publicación */
+.request__progress-bar--half {
+    width: 48%;
+}
+
+.publish {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4) var(--space-4);
+}
+
+.publish__column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.app-field__prefix {
+    color: var(--color-text);
+    font-size: var(--font-size-label);
+}
+
+.app-field__error {
+    display: none;
+    color: var(--color-error);
+    font-size: var(--font-size-small);
+}
+
+.app-field:has(.app-field__input:invalid) .app-field__control {
+    border: 2px solid var(--color-error);
+}
+
+.app-field:has(.app-field__input:invalid) .app-field__error {
+    display: block;
+}
+
+.chip--day {
+    justify-content: center;
+    min-width: 40px;
+}
+
+.publish__ai {
+    flex-wrap: wrap;
+    align-items: center;
+    padding: var(--space-4);
+    font-size: var(--font-size-label);
+}
+
+.publish__ai p {
+    flex: 1;
+}
+
+.publish__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+.publish__draft {
+    padding: var(--space-2) var(--space-4);
+    color: var(--color-primary);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semibold);
+}
+
+.publish__draft:hover {
+    text-decoration: underline;
+}
+
+.publish__blocked {
+    display: none;
+    background: var(--color-primary);
+    color: var(--color-surface);
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.publish:has(:invalid) .publish__submit {
+    display: none;
+}
+
+.publish:has(:invalid) .publish__blocked {
+    display: inline-flex;
+}
+
+@media (min-width: 768px) {
+    .publish {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .publish__footer {
+        grid-column: 1 / -1;
+    }
+}
 
 
 /* ==========================================================================
@@ -1132,15 +1533,266 @@ body {
    Frame: 17 Interesados y comparación · pages/anfitrion/interesados.html
    ========================================================================== */
 
+/* Anfitrión: interesados y comparación */
+.candidates {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.candidates__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    border: 0;
+}
+
+.candidate {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-caption);
+    cursor: pointer;
+}
+
+.candidate__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.candidate:has(.candidate__input:checked) {
+    border: 2px solid var(--color-primary);
+}
+
+.candidate:has(.candidate__input:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.candidate__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+}
+
+.candidate__name {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
+}
+
+.candidate__meta {
+    color: var(--color-muted);
+}
+
+.candidate__on,
+.candidate:has(.candidate__input:checked) .candidate__off {
+    display: none;
+}
+
+.candidate:has(.candidate__input:checked) .candidate__on {
+    display: inline;
+}
+
+.candidates__submit {
+    align-self: flex-start;
+    min-width: 220px;
+}
+
+@media (min-width: 768px) {
+    .candidates__list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 
 /* ==========================================================================
    Anfitrión: solicitudes de visita
    Frame: 18 Solicitudes de visita · Anfitrión · pages/anfitrion/solicitudes.html
    ========================================================================== */
 
+/* Anfitrión: solicitudes de visita */
+.host-requests {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.host-request {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.host-request__person {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.host-request__name {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
+}
+
+.host-request__career {
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.host-request__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-size: var(--font-size-caption);
+}
+
+.host-request__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.host-request__date {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-muted);
+}
+
+.host-request__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+}
+
+.host-request__reject {
+    margin-right: var(--space-3);
+    color: var(--color-error);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .host-request {
+        flex-direction: row;
+        align-items: center;
+        padding: var(--space-4) var(--space-4) var(--space-4) var(--space-4);
+    }
+
+    .host-request__person {
+        width: 260px;
+    }
+}
+
 
 /* ==========================================================================
    Anfitrión: reportes de demanda
    Frame: 19 Reportes de demanda · pages/anfitrion/reportes.html
    ========================================================================== */
+
+/* Anfitrión: reportes de demanda */
+.period {
+    display: flex;
+    align-self: flex-start;
+    gap: var(--space-1);
+    padding: var(--space-1);
+    background: var(--color-soft);
+    border: 0;
+    border-radius: var(--radius-md);
+}
+
+.period__option {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+    cursor: pointer;
+}
+
+.period__option:has(.chip__input:checked) {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+}
+
+.reports {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--space-4);
+}
+
+.panel--flush {
+    padding: var(--space-6) 0 0;
+    overflow: hidden;
+}
+
+.panel--flush .panel__title {
+    padding: 0 var(--space-4);
+}
+
+.bars {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--space-2);
+    height: 220px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.bars__item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-1);
+    height: 100%;
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+}
+
+.bars__bar {
+    width: 100%;
+    background: var(--color-secondary);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.bars__item:last-child .bars__bar {
+    background: var(--color-primary);
+}
+
+.bars__bar--s1 { height: 59%; }
+.bars__bar--s2 { height: 74%; }
+.bars__bar--s3 { height: 56%; }
+.bars__bar--s4 { height: 89%; }
+.bars__bar--s5 { height: 81%; }
+.bars__bar--s6 { height: 100%; }
+
+.bars__label {
+    color: var(--color-muted);
+}
+
+@media (min-width: 768px) {
+    .reports {
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .bars {
+        gap: var(--space-4);
+    }
+}
 

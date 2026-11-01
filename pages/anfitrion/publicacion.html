@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear publicación | RoomFinder</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="app">
+    <header class="app-header">
+        <a class="app-brand" href="panel.html">
+            <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="app-brand__name">RoomFinder</span>
+        </a>
+        <nav class="app-nav" aria-label="Navegación del anfitrión">
+            <a class="app-nav__link" href="panel.html">Panel</a>
+            <a class="app-nav__link app-nav__link--active" href="publicacion.html" aria-current="page">Publicaciones</a>
+            <a class="app-nav__link" href="solicitudes.html">Solicitudes</a>
+            <a class="app-nav__link" href="reportes.html">Reportes</a>
+            <a class="app-nav__link" href="#">Ayuda</a>
+        </nav>
+        <a class="app-user" href="panel.html">
+            <img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">
+            <span>Andrea</span>
+        </a>
+        <a class="app-header__menu" href="#" aria-label="Abrir menú">
+            <img src="../../img/icon-menu.svg" alt="" width="20" height="20">
+        </a>
+    </header>
+
+    <main class="app-main">
+        <section class="request">
+            <h1 class="page-head__title">Crear publicación</h1>
+            <p class="page-head__subtitle">Paso 2 de 3 · Habitaciones y convivencia</p>
+            <div class="request__progress" aria-label="Paso 2 de 3"><span class="request__progress-bar request__progress-bar--half"></span></div>
+        </section>
+
+        <form class="publish" action="panel.html">
+            <div class="publish__column">
+                <div class="app-field">
+                    <label class="app-field__label" for="vivienda">Nombre de vivienda</label>
+                    <div class="app-field__control">
+                        <input class="app-field__input" id="vivienda" name="vivienda" type="text" value="Depa Caminos del Inca" required>
+                        <img class="app-field__icon" src="../../img/icon-circle-check-success.svg" alt="" width="18" height="18">
+                    </div>
+                </div>
+                <div class="app-field">
+                    <label class="app-field__label" for="distrito">Distrito</label>
+                    <div class="app-field__control">
+                        <input class="app-field__input" id="distrito" name="distrito" type="text" value="Santiago de Surco" required>
+                        <img class="app-field__icon" src="../../img/icon-circle-check-success.svg" alt="" width="18" height="18">
+                    </div>
+                </div>
+                <div class="app-field">
+                    <label class="app-field__label" for="precio">Precio mensual</label>
+                    <div class="app-field__control">
+                        <span class="app-field__prefix">S/</span>
+                        <input class="app-field__input" id="precio" name="precio" type="number" value="0" min="300" required>
+                    </div>
+                    <p class="app-field__error">Ingresa un precio mayor a S/ 300.</p>
+                </div>
+                <div class="app-field">
+                    <label class="app-field__label" for="ubicacion">Ubicación aproximada</label>
+                    <div class="app-field__control">
+                        <input class="app-field__input" id="ubicacion" name="ubicacion" type="text" value="A 3 cuadras de Av. Primavera">
+                    </div>
+                </div>
+            </div>
+            <div class="publish__column">
+                <div class="app-field">
+                    <label class="app-field__label" for="habitaciones">Habitaciones</label>
+                    <div class="app-field__control">
+                        <input class="app-field__input" id="habitaciones" name="habitaciones" type="text" value="2 habitaciones disponibles">
+                    </div>
+                </div>
+                <fieldset class="chips">
+                    <legend class="app-field__label">Servicios incluidos</legend>
+                    <label class="chip" for="servicios-wifi"><input class="chip__input" id="servicios-wifi" name="servicios" type="checkbox" value="wifi" checked>Wi-Fi</label>
+                    <label class="chip" for="servicios-agua"><input class="chip__input" id="servicios-agua" name="servicios" type="checkbox" value="agua" checked>Agua</label>
+                    <label class="chip" for="servicios-limpieza"><input class="chip__input" id="servicios-limpieza" name="servicios" type="checkbox" value="limpieza" checked>Limpieza</label>
+                    <label class="chip" for="servicios-luz"><input class="chip__input" id="servicios-luz" name="servicios" type="checkbox" value="luz">Luz</label>
+                </fieldset>
+                <div class="app-field">
+                    <label class="app-field__label" for="reglas">Reglas de convivencia</label>
+                    <div class="app-field__control">
+                        <input class="app-field__input" id="reglas" name="reglas" type="text" value="Ruido bajo 10 p. m.; visitas hasta 9 p. m.">
+                    </div>
+                </div>
+                <fieldset class="chips">
+                    <legend class="app-field__label">Días disponibles para visitas</legend>
+                    <label class="chip chip--day" for="dias-lu"><input class="chip__input" id="dias-lu" name="dias" type="checkbox" value="lu" checked>Lu</label>
+                    <label class="chip chip--day" for="dias-ma"><input class="chip__input" id="dias-ma" name="dias" type="checkbox" value="ma">Ma</label>
+                    <label class="chip chip--day" for="dias-mi"><input class="chip__input" id="dias-mi" name="dias" type="checkbox" value="mi" checked>Mi</label>
+                    <label class="chip chip--day" for="dias-ju"><input class="chip__input" id="dias-ju" name="dias" type="checkbox" value="ju">Ju</label>
+                    <label class="chip chip--day" for="dias-vi"><input class="chip__input" id="dias-vi" name="dias" type="checkbox" value="vi">Vi</label>
+                    <label class="chip chip--day" for="dias-sa"><input class="chip__input" id="dias-sa" name="dias" type="checkbox" value="sa" checked>Sá</label>
+                    <label class="chip chip--day" for="dias-do"><input class="chip__input" id="dias-do" name="dias" type="checkbox" value="do" checked>Do</label>
+                    <p class="app-field__hint">Los estudiantes verán estos días en el calendario de visitas de las próximas 4 semanas.</p>
+                </fieldset>
+                <div class="app-note publish__ai">
+                    <img src="../../img/icon-sparkles.svg" alt="" width="18" height="18">
+                    <p>Genera una descripción clara con IA usando tus datos.</p>
+                    <a class="app-button app-button--secondary" href="#">Generar</a>
+                </div>
+            </div>
+            <div class="publish__footer">
+                <a class="publish__draft" href="panel.html">Guardar borrador</a>
+                <a class="app-button app-button--primary publish__submit" href="panel.html">Continuar</a>
+                <span class="app-button publish__blocked" aria-disabled="true">Corrige el precio</span>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

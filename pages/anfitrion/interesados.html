@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interesados | RoomFinder</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="app">
+    <header class="app-header">
+        <a class="app-brand" href="panel.html">
+            <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="app-brand__name">RoomFinder</span>
+        </a>
+        <nav class="app-nav" aria-label="Navegación del anfitrión">
+            <a class="app-nav__link" href="panel.html">Panel</a>
+            <a class="app-nav__link app-nav__link--active" href="publicacion.html" aria-current="page">Publicaciones</a>
+            <a class="app-nav__link" href="solicitudes.html">Solicitudes</a>
+            <a class="app-nav__link" href="reportes.html">Reportes</a>
+            <a class="app-nav__link" href="#">Ayuda</a>
+        </nav>
+        <a class="app-user" href="panel.html">
+            <img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">
+            <span>Andrea</span>
+        </a>
+        <a class="app-header__menu" href="#" aria-label="Abrir menú">
+            <img src="../../img/icon-menu.svg" alt="" width="20" height="20">
+        </a>
+    </header>
+
+    <main class="app-main">
+        <section class="page-head">
+            <div class="page-head__text">
+                <h1 class="page-head__title">Interesados · Habitación luminosa cerca a UPC</h1>
+                <p class="page-head__subtitle">Selecciona al menos 2 perfiles para comparar.</p>
+            </div>
+        </section>
+
+        <form class="candidates" action="solicitudes.html">
+            <fieldset class="candidates__list">
+                <legend class="chips__legend">Perfiles interesados</legend>
+            <label class="candidate" for="candidato-lucia">
+                <input class="candidate__input" id="candidato-lucia" name="candidatos" type="checkbox" value="lucia" checked>
+                <span class="candidate__top">
+                    <span class="candidate__name">Lucía Ramos</span>
+                    <span class="badge badge--teal candidate__state"><img src="../../img/icon-circle-check.svg" alt="" width="14" height="14"><span class="candidate__on">Seleccionado</span><span class="candidate__off">Seleccionar</span></span>
+                </span>
+                <span class="candidate__meta">Verificada · 08:00–22:30 · tranquila</span>
+                <span class="candidate__visit">Visita: sáb. 11:30</span>
+            </label>
+            <label class="candidate" for="candidato-diego">
+                <input class="candidate__input" id="candidato-diego" name="candidatos" type="checkbox" value="diego" checked>
+                <span class="candidate__top">
+                    <span class="candidate__name">Diego Salas</span>
+                    <span class="badge badge--teal candidate__state"><img src="../../img/icon-circle-check.svg" alt="" width="14" height="14"><span class="candidate__on">Seleccionado</span><span class="candidate__off">Seleccionar</span></span>
+                </span>
+                <span class="candidate__meta">Verificado · 07:00–23:00 · música moderada</span>
+                <span class="candidate__visit">Visita: sáb. 16:00</span>
+            </label>
+            <label class="candidate" for="candidato-camila">
+                <input class="candidate__input" id="candidato-camila" name="candidatos" type="checkbox" value="camila">
+                <span class="candidate__top">
+                    <span class="candidate__name">Camila Torres</span>
+                    <span class="badge badge--teal candidate__state"><img src="../../img/icon-circle-check.svg" alt="" width="14" height="14"><span class="candidate__on">Seleccionado</span><span class="candidate__off">Seleccionar</span></span>
+                </span>
+                <span class="candidate__meta">Verificada · 09:00–00:00 · recibe visitas</span>
+                <span class="candidate__visit">Visita: dom. 10:00</span>
+            </label>
+            </fieldset>
+
+            <div class="data-table">
+                <table class="data-table__table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Criterio</th>
+                            <th scope="col">Lucía</th>
+                            <th scope="col">Diego</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Verificación</th>
+                        <td>Completa</td>
+                        <td>Completa</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Horario</th>
+                        <td>08:00–22:30</td>
+                        <td>07:00–23:00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Limpieza</th>
+                        <td>Semanal</td>
+                        <td>2 veces/semana</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ruido</th>
+                        <td>Bajo</td>
+                        <td>Moderado</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Visitas</th>
+                        <td>Ocasionales</td>
+                        <td>Fines de semana</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Compatibilidad</th>
+                        <td>92%</td>
+                        <td>84%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <a class="app-button app-button--primary candidates__submit" href="solicitudes.html">Elegir candidato</a>
+        </form>
+    </main>
+</body>
+</html>
