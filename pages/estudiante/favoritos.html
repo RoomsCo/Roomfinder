@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis favoritos | RoomFinder</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="app">
+    <header class="app-header">
+        <a class="app-brand" href="explorar.html">
+            <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="app-brand__name">RoomFinder</span>
+        </a>
+        <nav class="app-nav" aria-label="Navegación del estudiante">
+            <a class="app-nav__link" href="explorar.html">Explorar</a>
+            <a class="app-nav__link app-nav__link--active" href="favoritos.html" aria-current="page">Favoritos</a>
+            <a class="app-nav__link" href="mis-solicitudes.html">Mis solicitudes</a>
+            <a class="app-nav__link" href="#">Ayuda</a>
+        </nav>
+        <a class="app-user" href="perfil.html">
+            <img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">
+            <span>María</span>
+        </a>
+        <a class="app-header__menu" href="#" aria-label="Abrir menú">
+            <img src="../../img/icon-menu.svg" alt="" width="20" height="20">
+        </a>
+    </header>
+
+    <main class="app-main">
+        <section class="page-head">
+            <div class="page-head__text">
+                <h1 class="page-head__title">Mis favoritos</h1>
+                <p class="page-head__subtitle">Tus habitaciones guardadas · marca hasta 3 para comparar</p>
+            </div>
+            <a class="app-button app-button--primary page-head__action" href="comparar.html">Comparar (2)</a>
+        </section>
+
+        <section class="room-grid" aria-label="Habitaciones guardadas">
+            <article class="room-card">
+                <a class="room-card__media" href="detalle-habitacion.html">
+                    <img class="room-card__photo" src="../../img/habitacion-luminosa.jpg" alt="Habitación con cama, escritorio y ventana amplia" width="392" height="150">
+                </a>
+                <div class="room-card__body">
+                    <div class="room-card__top">
+                        <span class="badge badge--success"><img src="../../img/icon-circle-check-success.svg" alt="" width="14" height="14">Disponible ahora</span>
+                        <p class="room-card__price">S/ 980/mes</p>
+                    </div>
+                    <div class="room-card__row">
+                        <h2 class="room-card__title"><a href="detalle-habitacion.html">Habitación luminosa cerca a UPC</a></h2>
+                        <a class="room-card__fav" href="favoritos.html" aria-label="Quitar de favoritos">
+                            <img src="../../img/icon-heart-filled.svg" alt="" width="22" height="22">
+                        </a>
+                    </div>
+                    <p class="room-card__meta">Santiago de Surco · 18 min al campus</p>
+                    <p class="room-card__services">Wi-Fi · Agua · Limpieza semanal</p>
+                </div>
+                <div class="room-card__actions">
+                    <label class="app-check" for="comparar-habitacion-luminosa">
+                        <input class="app-check__input" id="comparar-habitacion-luminosa" name="comparar" type="checkbox" checked>
+                        Comparar
+                    </label>
+                    <a class="room-card__remove" href="#">Quitar</a>
+                </div>
+            </article>
+            <article class="room-card">
+                <a class="room-card__media" href="detalle-habitacion.html">
+                    <img class="room-card__photo" src="../../img/cuarto-bano-propio.jpg" alt="Cuarto con cama, escritorio y librero" width="392" height="150">
+                </a>
+                <div class="room-card__body">
+                    <div class="room-card__top">
+                        <span class="badge badge--success"><img src="../../img/icon-circle-check-success.svg" alt="" width="14" height="14">Disponible ahora</span>
+                        <p class="room-card__price">S/ 1,100/mes</p>
+                    </div>
+                    <div class="room-card__row">
+                        <h2 class="room-card__title"><a href="detalle-habitacion.html">Cuarto con baño propio</a></h2>
+                        <a class="room-card__fav" href="favoritos.html" aria-label="Quitar de favoritos">
+                            <img src="../../img/icon-heart-filled.svg" alt="" width="22" height="22">
+                        </a>
+                    </div>
+                    <p class="room-card__meta">Santiago de Surco · 12 min al campus</p>
+                    <p class="room-card__services">Wi-Fi · Agua · Luz incluida</p>
+                </div>
+                <div class="room-card__actions">
+                    <label class="app-check" for="comparar-cuarto-bano-propio">
+                        <input class="app-check__input" id="comparar-cuarto-bano-propio" name="comparar" type="checkbox" checked>
+                        Comparar
+                    </label>
+                    <a class="room-card__remove" href="#">Quitar</a>
+                </div>
+            </article>
+            <article class="room-card">
+                <a class="room-card__media" href="detalle-habitacion.html">
+                    <img class="room-card__photo" src="../../img/depa-compartido.jpg" alt="Habitación con cama y escritorio junto a la ventana" width="392" height="150">
+                </a>
+                <div class="room-card__body">
+                    <div class="room-card__top">
+                        <span class="badge badge--success"><img src="../../img/icon-circle-check-success.svg" alt="" width="14" height="14">Disponible ahora</span>
+                        <p class="room-card__price">S/ 850/mes</p>
+                    </div>
+                    <div class="room-card__row">
+                        <h2 class="room-card__title"><a href="detalle-habitacion.html">Habitación en depa compartido</a></h2>
+                        <a class="room-card__fav" href="favoritos.html" aria-label="Quitar de favoritos">
+                            <img src="../../img/icon-heart-filled.svg" alt="" width="22" height="22">
+                        </a>
+                    </div>
+                    <p class="room-card__meta">San Borja · 25 min al campus</p>
+                    <p class="room-card__services">Wi-Fi · Agua</p>
+                </div>
+                <div class="room-card__actions">
+                    <label class="app-check" for="comparar-depa-compartido">
+                        <input class="app-check__input" id="comparar-depa-compartido" name="comparar" type="checkbox">
+                        Comparar
+                    </label>
+                    <a class="room-card__remove" href="#">Quitar</a>
+                </div>
+            </article>
+        </section>
+
+        <p class="app-note">
+            <img src="../../img/icon-info.svg" alt="" width="16" height="16">
+            Si una habitación guardada deja de estar disponible, te avisaremos aquí.
+        </p>
+    </main>
+</body>
+</html>

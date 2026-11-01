@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de habitación | RoomFinder</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="app">
+    <header class="app-header">
+        <a class="app-brand" href="explorar.html">
+            <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="app-brand__name">RoomFinder</span>
+        </a>
+        <nav class="app-nav" aria-label="Navegación del estudiante">
+            <a class="app-nav__link app-nav__link--active" href="explorar.html" aria-current="page">Explorar</a>
+            <a class="app-nav__link" href="favoritos.html">Favoritos</a>
+            <a class="app-nav__link" href="mis-solicitudes.html">Mis solicitudes</a>
+            <a class="app-nav__link" href="#">Ayuda</a>
+        </nav>
+        <a class="app-user" href="perfil.html">
+            <img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">
+            <span>María</span>
+        </a>
+        <a class="app-header__menu" href="#" aria-label="Abrir menú">
+            <img src="../../img/icon-menu.svg" alt="" width="20" height="20">
+        </a>
+    </header>
+
+    <main class="app-main">
+        <section class="gallery" aria-label="Fotos de la habitación">
+            <img class="gallery__main" src="../../img/habitacion-luminosa.jpg" alt="Habitación con cama, escritorio y ventana amplia" width="992" height="280">
+            <img class="gallery__side" src="../../img/cuarto-cocina.jpg" alt="Cocina compartida equipada" width="280" height="280">
+        </section>
+
+        <div class="detail">
+            <article class="detail__info">
+                <div class="detail__top">
+                    <p class="detail__price">S/ 980/mes</p>
+                    <span class="badge badge--success"><img src="../../img/icon-circle-check-success.svg" alt="" width="14" height="14">Disponible ahora</span>
+                </div>
+                <h1 class="detail__title">Habitación luminosa cerca a UPC</h1>
+                <p class="detail__location">Santiago de Surco · 18 min a UPC Monterrico</p>
+                <p class="detail__text">Incluye Wi-Fi, agua, mantenimiento y limpieza semanal. Ubicación aproximada: Av. Caminos del Inca.</p>
+                <h2 class="detail__subtitle">Reglas de convivencia</h2>
+                <p class="detail__rules">Ruido bajo después de 10 p. m. · Visitas hasta las 9 p. m. · Limpieza compartida los sábados.</p>
+            </article>
+
+            <aside class="host-card" aria-label="Anfitriona">
+                <span class="badge badge--teal"><img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">Andrea · verificada</span>
+                <p class="host-card__match">Compatibilidad 86%</p>
+                <p class="host-card__text">Estudiante de posgrado · tranquila · no fuma</p>
+                <a class="app-button app-button--primary app-button--block" href="solicitar-visita.html">Solicitar visita</a>
+            </aside>
+        </div>
+    </main>
+</body>
+</html>

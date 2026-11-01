@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis solicitudes | RoomFinder</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="app">
+    <header class="app-header">
+        <a class="app-brand" href="explorar.html">
+            <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="app-brand__name">RoomFinder</span>
+        </a>
+        <nav class="app-nav" aria-label="Navegación del estudiante">
+            <a class="app-nav__link" href="explorar.html">Explorar</a>
+            <a class="app-nav__link" href="favoritos.html">Favoritos</a>
+            <a class="app-nav__link app-nav__link--active" href="mis-solicitudes.html" aria-current="page">Mis solicitudes</a>
+            <a class="app-nav__link" href="#">Ayuda</a>
+        </nav>
+        <a class="app-user" href="perfil.html">
+            <img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">
+            <span>María</span>
+        </a>
+        <a class="app-header__menu" href="#" aria-label="Abrir menú">
+            <img src="../../img/icon-menu.svg" alt="" width="20" height="20">
+        </a>
+    </header>
+
+    <main class="app-main app-main--split">
+        <section class="visits">
+            <h1 class="page-head__title">Mis solicitudes</h1>
+            <p class="page-head__subtitle">Revisa, reprograma o cancela tus visitas.</p>
+            <nav class="visits__tabs" aria-label="Filtrar solicitudes">
+                <a class="visits__tab visits__tab--active" href="#" aria-current="page">Próximas (2)</a>
+                <a class="visits__tab" href="#">Pendientes (1)</a>
+                <a class="visits__tab" href="#">Historial</a>
+            </nav>
+            <div class="visits__list">
+                <article class="visit-card visit-card--selected">
+                    <img class="visit-card__photo" src="../../img/habitacion-luminosa.jpg" alt="" width="96" height="72">
+                    <div class="visit-card__body">
+                        <span class="badge badge--teal"><img src="../../img/icon-clock.svg" alt="" width="14" height="14">Pendiente de confirmación</span>
+                        <h2 class="visit-card__title">Habitación luminosa cerca a UPC</h2>
+                        <p class="visit-card__date"><img src="../../img/icon-calendar.svg" alt="" width="14" height="14">Sábado 26 de septiembre · 11:30</p>
+                        <p class="visit-card__host">Andrea · anfitriona verificada</p>
+                    </div>
+                    <div class="visit-card__actions">
+                        <a class="visit-card__cancel" href="#">Cancelar visita</a>
+                        <a class="app-button app-button--secondary" href="#reprogramar">Reprogramar</a>
+                    </div>
+                </article>
+                <article class="visit-card">
+                    <img class="visit-card__photo" src="../../img/cuarto-bano-propio.jpg" alt="" width="96" height="72">
+                    <div class="visit-card__body">
+                        <span class="badge badge--success"><img src="../../img/icon-circle-check-success.svg" alt="" width="14" height="14">Confirmada</span>
+                        <h2 class="visit-card__title">Cuarto con baño propio</h2>
+                        <p class="visit-card__date"><img src="../../img/icon-calendar.svg" alt="" width="14" height="14">Lunes 28 de septiembre · 18:00</p>
+                        <p class="visit-card__host">Jorge · anfitrión verificado</p>
+                    </div>
+                    <div class="visit-card__actions">
+                        <a class="visit-card__cancel" href="#">Cancelar visita</a>
+                        <a class="app-button app-button--secondary" href="#reprogramar">Reprogramar</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <aside class="reschedule" id="reprogramar" aria-labelledby="reprogramar-titulo">
+            <h2 class="reschedule__title" id="reprogramar-titulo">Reprogramar visita</h2>
+            <p class="reschedule__text">Habitación luminosa cerca a UPC · actual: sáb 26 sep, 11:30</p>
+            <form class="request__form" action="mis-solicitudes.html">
+                <div class="app-field">
+                    <label class="app-field__label" for="nueva-fecha">Nueva fecha</label>
+                    <div class="app-field__control">
+                        <input class="app-field__input" id="nueva-fecha" name="nueva-fecha" type="text" value="Domingo 27 de septiembre" readonly>
+                        <img class="app-field__icon" src="../../img/icon-calendar.svg" alt="" width="18" height="18">
+                    </div>
+                </div>
+                <fieldset class="chips">
+                    <legend class="app-field__label">Horarios disponibles</legend>
+                    <label class="chip" for="nueva-hora-1000"><input class="chip__input" id="nueva-hora-1000" name="nueva-hora" type="radio" value="1000">10:00</label>
+                    <label class="chip" for="nueva-hora-1130"><input class="chip__input" id="nueva-hora-1130" name="nueva-hora" type="radio" value="1130">11:30</label>
+                    <label class="chip" for="nueva-hora-1600"><input class="chip__input" id="nueva-hora-1600" name="nueva-hora" type="radio" value="1600" checked>16:00</label>
+                    <label class="chip" for="nueva-hora-1800"><input class="chip__input" id="nueva-hora-1800" name="nueva-hora" type="radio" value="1800">18:00</label>
+                </fieldset>
+                <div class="app-field">
+                    <label class="app-field__label" for="mensaje-reprogramar">Mensaje para Andrea (opcional)</label>
+                    <textarea class="app-field__input app-field__input--area" id="mensaje-reprogramar" name="mensaje" rows="2">Tengo clase el sábado, ¿podría ser el domingo?</textarea>
+                </div>
+                <p class="app-note">
+                    <img src="../../img/icon-clock.svg" alt="" width="16" height="16">
+                    Puedes reprogramar o cancelar hasta 3 horas antes de la visita.
+                </p>
+                <div class="reschedule__actions">
+                    <a class="app-button app-button--secondary" href="mis-solicitudes.html">Volver</a>
+                    <a class="app-button app-button--primary" href="mis-solicitudes.html">Enviar nuevo horario</a>
+                </div>
+            </form>
+        </aside>
+    </main>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar habitaciones | RoomFinder</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="app">
+    <header class="app-header">
+        <a class="app-brand" href="explorar.html">
+            <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="app-brand__name">RoomFinder</span>
+        </a>
+        <nav class="app-nav" aria-label="Navegación del estudiante">
+            <a class="app-nav__link" href="explorar.html">Explorar</a>
+            <a class="app-nav__link app-nav__link--active" href="favoritos.html" aria-current="page">Favoritos</a>
+            <a class="app-nav__link" href="mis-solicitudes.html">Mis solicitudes</a>
+            <a class="app-nav__link" href="#">Ayuda</a>
+        </nav>
+        <a class="app-user" href="perfil.html">
+            <img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">
+            <span>María</span>
+        </a>
+        <a class="app-header__menu" href="#" aria-label="Abrir menú">
+            <img src="../../img/icon-menu.svg" alt="" width="20" height="20">
+        </a>
+    </header>
+
+    <main class="app-main">
+        <section class="page-head">
+            <div class="page-head__text">
+                <h1 class="page-head__title">Comparar habitaciones</h1>
+                <p class="page-head__subtitle">Tiempos calculados desde UPC Monterrico en transporte público.</p>
+            </div>
+            <a class="app-button app-button--secondary page-head__action" href="#">Cambiar campus</a>
+        </section>
+
+        <div class="compare">
+            <table class="compare__table">
+                <thead>
+                    <tr>
+                        <th class="compare__label compare__label--head" scope="col">Criterio</th>
+                        <th class="compare__room" scope="col">
+                            <img class="compare__photo" src="../../img/habitacion-luminosa.jpg" alt="Habitación luminosa" width="486" height="96">
+                            <span class="compare__name">Habitación luminosa cerca a UPC</span>
+                            <a class="compare__remove" href="favoritos.html" aria-label="Quitar Habitación luminosa cerca a UPC de la comparación">
+                                <img src="../../img/icon-x.svg" alt="" width="18" height="18">
+                            </a>
+                        </th>
+                        <th class="compare__room" scope="col">
+                            <img class="compare__photo" src="../../img/cuarto-bano-propio.jpg" alt="Cuarto con baño propio" width="486" height="96">
+                            <span class="compare__name">Cuarto con baño propio</span>
+                            <a class="compare__remove" href="favoritos.html" aria-label="Quitar Cuarto con baño propio de la comparación">
+                                <img src="../../img/icon-x.svg" alt="" width="18" height="18">
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="compare__row">
+                        <th class="compare__label" scope="row">Precio mensual</th>
+                        <td class="compare__cell compare__cell--strong">S/ 980</td>
+                        <td class="compare__cell compare__cell--strong">S/ 1,100</td>
+                    </tr>
+                    <tr class="compare__row">
+                        <th class="compare__label" scope="row">Tiempo al campus</th>
+                        <td class="compare__cell compare__cell--strong">18 min · 1 bus</td>
+                        <td class="compare__cell compare__cell--strong">12 min · a pie</td>
+                    </tr>
+                    <tr class="compare__row">
+                        <th class="compare__label" scope="row">Distrito</th>
+                        <td class="compare__cell">Santiago de Surco</td>
+                        <td class="compare__cell">Santiago de Surco</td>
+                    </tr>
+                    <tr class="compare__row">
+                        <th class="compare__label" scope="row">Servicios incluidos</th>
+                        <td class="compare__cell">Wi-Fi, agua, limpieza</td>
+                        <td class="compare__cell">Wi-Fi, agua, luz</td>
+                    </tr>
+                    <tr class="compare__row">
+                        <th class="compare__label" scope="row">Baño</th>
+                        <td class="compare__cell">Compartido</td>
+                        <td class="compare__cell">Propio</td>
+                    </tr>
+                    <tr class="compare__row">
+                        <th class="compare__label" scope="row">Visitas</th>
+                        <td class="compare__cell">Hasta 9 p. m.</td>
+                        <td class="compare__cell">Hasta 10 p. m.</td>
+                    </tr>
+                    <tr class="compare__row">
+                        <th class="compare__label" scope="row">Disponible desde</th>
+                        <td class="compare__cell">Ahora</td>
+                        <td class="compare__cell">Ahora</td>
+                    </tr>
+                    <tr class="compare__row">
+                        <th class="compare__label" scope="row">Compatibilidad</th>
+                        <td class="compare__cell">86 %</td>
+                        <td class="compare__cell">78 %</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="compare__label"></td>
+                        <td class="compare__cell"><a class="app-button app-button--primary app-button--block" href="solicitar-visita.html">Solicitar visita</a></td>
+                        <td class="compare__cell"><a class="app-button app-button--primary app-button--block" href="solicitar-visita.html">Solicitar visita</a></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
