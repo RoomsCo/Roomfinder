@@ -136,11 +136,268 @@ body {
    Frame: cabecera y pie del grupo auth
    ========================================================================== */
 
+/* Auth: estructura común (cabecera, tarjeta, campos y botones) */
+.auth {
+    min-height: 100vh;
+}
+
+.auth-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0 var(--page-gutter);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.auth-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.auth-brand__name {
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+}
+
+.auth-lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-semibold);
+}
+
+.auth-main {
+    padding: var(--space-6) var(--page-gutter);
+}
+
+.auth-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(28, 25, 23, 0.08);
+}
+
+.auth-card__title {
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    line-height: 29px;
+}
+
+.auth-card__text {
+    margin-top: calc(var(--space-2) * -1);
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+    line-height: 17px;
+}
+
+.auth-card__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-teal-soft);
+    border-radius: 999px;
+}
+
+.auth-card__footer {
+    color: var(--color-muted);
+    font-size: var(--font-size-caption);
+    text-align: center;
+}
+
+.auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: var(--space-1);
+    background: var(--color-soft);
+    border-radius: var(--radius-sm);
+}
+
+.auth-tabs__tab {
+    padding: var(--space-2);
+    border-radius: 6px;
+    color: var(--color-muted);
+    font-size: var(--font-size-caption);
+    text-align: center;
+}
+
+.auth-tabs__tab--active {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.auth-form__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+}
+
+.auth-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.auth-field__label {
+    font-size: 13px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.auth-field__control {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    height: 44px;
+    padding: 0 var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+}
+
+.auth-field__control:focus-within {
+    border-color: var(--color-primary);
+}
+
+.auth-field__input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--color-text);
+    font-size: var(--font-size-label);
+}
+
+.auth-field__toggle {
+    display: flex;
+}
+
+.auth-field__hint {
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+    line-height: 15px;
+}
+
+.auth-field__error {
+    display: none;
+    color: var(--color-error);
+    font-size: var(--font-size-small);
+    line-height: 15px;
+}
+
+.auth-field:has(.auth-field__input:user-invalid) .auth-field__control {
+    border-color: var(--color-error);
+}
+
+.auth-field:has(.auth-field__input:user-invalid) .auth-field__error {
+    display: block;
+}
+
+.auth-check {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 13px;
+}
+
+.auth-check__input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+}
+
+.auth-link {
+    color: var(--color-text);
+    font-size: 13px;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: underline;
+}
+
+.auth-link:hover {
+    color: var(--color-primary);
+}
+
+.auth-link--left {
+    align-self: flex-start;
+}
+
+.auth-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 37px;
+    background: var(--color-primary);
+    border-radius: var(--radius-sm);
+    color: var(--color-surface);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semibold);
+}
+
+.auth-button:hover {
+    background: var(--color-hover);
+}
+
+.auth-button:active {
+    background: var(--color-pressed);
+}
+
+.auth-notice {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    background: var(--color-teal-soft);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.auth-notice img {
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .auth-main {
+        padding: var(--space-16) var(--page-gutter);
+    }
+
+    .auth-card {
+        padding: var(--space-8);
+    }
+
+    .auth-card__title {
+        font-size: 28px;
+        line-height: 34px;
+    }
+}
+
 
 /* ==========================================================================
    Auth: iniciar sesión
    Frame: 02 Iniciar sesión · pages/auth/login.html
    ========================================================================== */
+
+/* Auth: iniciar sesión (usa la estructura común) */
 
 
 /* ==========================================================================
@@ -148,11 +405,26 @@ body {
    Frame: 03 Recuperar contraseña · pages/auth/recuperar-contrasena.html
    ========================================================================== */
 
+/* Auth: recuperar contraseña */
+.auth-back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 13px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.auth-back:hover {
+    color: var(--color-primary);
+}
+
 
 /* ==========================================================================
    Auth: crear cuenta
    Frame: 04 Crear cuenta · pages/auth/crear-cuenta.html
    ========================================================================== */
+
+/* Auth: crear cuenta (usa la estructura común) */
 
 
 /* ==========================================================================
@@ -160,11 +432,144 @@ body {
    Frame: 05 Selección de rol · pages/auth/seleccion-rol.html
    ========================================================================== */
 
+/* Auth: selección de rol */
+.auth-main--wide {
+    padding-top: var(--space-6);
+}
+
+.role {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.role__title {
+    font-size: 28px;
+    font-weight: var(--font-weight-bold);
+    line-height: 34px;
+}
+
+.role__text {
+    margin-top: calc(var(--space-3) * -1);
+    color: var(--color-muted);
+    font-size: var(--font-size-label);
+}
+
+.role__options {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.role-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.role-card:hover {
+    border-color: var(--color-primary);
+}
+
+.role-card__title {
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.role-card__text {
+    color: var(--color-muted);
+    font-size: 13px;
+}
+
+.role__error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    color: var(--color-error);
+    font-size: 13px;
+}
+
+.role__continue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 44px;
+    margin: 0 auto;
+    background: var(--color-disabled);
+    border-radius: var(--radius-sm);
+    color: var(--color-surface);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semibold);
+}
+
+@media (min-width: 768px) {
+    .auth-main--wide {
+        padding: var(--space-10) var(--space-20);
+    }
+
+    .role__title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .role__options {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .role__continue {
+        width: 240px;
+    }
+}
+
 
 /* ==========================================================================
    Auth: verificar correo
    Frame: 06 Verificar correo universitario · pages/auth/verificar-correo.html
    ========================================================================== */
+
+/* Auth: verificar correo */
+.otp {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-2);
+    border: 0;
+}
+
+.otp__legend,
+.otp__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.otp__digit {
+    width: 100%;
+    height: 52px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 20px;
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+}
+
+.otp__digit:focus {
+    border-color: var(--color-primary);
+    outline: 0;
+}
+
+.otp:has(.otp__digit:user-invalid) + .otp__error {
+    display: block;
+}
 
 
 /* ==========================================================================

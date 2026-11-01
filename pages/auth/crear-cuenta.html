@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta | RoomFinder</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="auth">
+    <header class="auth-header">
+        <a class="auth-brand" href="../../index.html">
+            <img class="auth-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="auth-brand__name">RoomFinder</span>
+        </a>
+        <a class="auth-lang" href="#" aria-label="Cambiar idioma">
+            <img src="../../img/icon-globe.svg" alt="" width="14" height="14">
+            <span>ES | EN</span>
+        </a>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-card">
+            <h1 class="auth-card__title">Crea tu cuenta</h1>
+            <p class="auth-card__text">Después elegirás si buscas o publicas una habitación.</p>
+            <nav class="auth-tabs" aria-label="Acceso">
+                <a class="auth-tabs__tab" href="login.html">Iniciar sesión</a>
+                <a class="auth-tabs__tab auth-tabs__tab--active" href="crear-cuenta.html">Crear cuenta</a>
+            </nav>
+            <form class="auth-form" action="seleccion-rol.html">
+            <div class="auth-field">
+                <label class="auth-field__label" for="name">Nombres y apellidos</label>
+                <div class="auth-field__control">
+                    <input class="auth-field__input" id="name" name="name" type="text" value="María López Quispe" required minlength="3">
+                </div>
+                <p class="auth-field__error">Escribe tus nombres y apellidos.</p>
+            </div>
+            <div class="auth-field">
+                <label class="auth-field__label" for="email">Correo electrónico</label>
+                <div class="auth-field__control">
+                    <img class="auth-field__icon" src="../../img/icon-mail.svg" alt="" width="16" height="16">
+                    <input class="auth-field__input" id="email" name="email" type="email" value="maria.lopez@upc.edu.pe" required>
+                </div>
+                <p class="auth-field__hint">Si eres estudiante, usa tu correo universitario: con él verificamos tu condición.</p>
+                <p class="auth-field__error">Ingresa un correo válido, por ejemplo nombre@upc.edu.pe.</p>
+            </div>
+            <div class="auth-field">
+                <label class="auth-field__label" for="password">Contraseña</label>
+                <div class="auth-field__control">
+                    <img class="auth-field__icon" src="../../img/icon-lock.svg" alt="" width="16" height="16">
+                    <input class="auth-field__input" id="password" name="password" type="password" value="roomfinder1" required minlength="8">
+                    <a class="auth-field__toggle" href="#" aria-label="Mostrar contraseña"><img src="../../img/icon-eye.svg" alt="" width="16" height="16"></a>
+                </div>
+                <p class="auth-field__hint">Mínimo 8 caracteres, con una letra y un número.</p>
+                <p class="auth-field__error">La contraseña debe tener mínimo 8 caracteres, con una letra y un número.</p>
+            </div>
+                <label class="auth-check" for="terms">
+                    <input class="auth-check__input" id="terms" name="terms" type="checkbox" checked required>
+                    Acepto los Términos y la Política de privacidad
+                </label>
+                <a class="auth-button" href="seleccion-rol.html">Crear cuenta</a>
+            </form>
+            <p class="auth-card__footer">¿Ya tienes cuenta? <a class="auth-link" href="login.html">Iniciar sesión</a></p>
+        </section>
+    </main>
+</body>
+</html>

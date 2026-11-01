@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar correo universitario | RoomFinder</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="auth">
+    <header class="auth-header">
+        <a class="auth-brand" href="../../index.html">
+            <img class="auth-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="auth-brand__name">RoomFinder</span>
+        </a>
+        <a class="auth-lang" href="#" aria-label="Cambiar idioma">
+            <img src="../../img/icon-globe.svg" alt="" width="14" height="14">
+            <span>ES | EN</span>
+        </a>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-card">
+            <span class="auth-card__badge">
+                <img src="../../img/icon-shield-check.svg" alt="" width="20" height="20">
+            </span>
+            <h1 class="auth-card__title">Verifica tu condición de estudiante</h1>
+            <p class="auth-card__text">Solo para estudiantes · enviamos un código de 6 dígitos a maria.lopez@upc.edu.pe</p>
+            <form class="auth-form" action="../estudiante/explorar.html">
+                <fieldset class="otp">
+                    <legend class="otp__legend">Código de verificación</legend>
+                    <label class="otp__label" for="d1">Dígito 1</label>
+                    <input class="otp__digit" id="d1" name="d1" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" value="4" required>
+                    <label class="otp__label" for="d2">Dígito 2</label>
+                    <input class="otp__digit" id="d2" name="d2" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" value="8" required>
+                    <label class="otp__label" for="d3">Dígito 3</label>
+                    <input class="otp__digit" id="d3" name="d3" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" value="1" required>
+                    <label class="otp__label" for="d4">Dígito 4</label>
+                    <input class="otp__digit" id="d4" name="d4" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" required>
+                    <label class="otp__label" for="d5">Dígito 5</label>
+                    <input class="otp__digit" id="d5" name="d5" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" required>
+                    <label class="otp__label" for="d6">Dígito 6</label>
+                    <input class="otp__digit" id="d6" name="d6" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" required>
+                </fieldset>
+                <p class="auth-field__error otp__error">Ingresa los 6 dígitos del código.</p>
+                <p class="auth-notice">
+                    <img src="../../img/icon-info.svg" alt="" width="16" height="16">
+                    El código vence en 10 minutos. Revisa también tu carpeta de spam.
+                </p>
+                <a class="auth-button" href="../estudiante/explorar.html">Verificar</a>
+            </form>
+            <p class="auth-card__footer">¿No te llegó? <strong>Reenviar en 0:45</strong></p>
+            <a class="auth-link auth-link--left" href="crear-cuenta.html">Cambiar correo</a>
+        </section>
+    </main>
+</body>
+</html>
