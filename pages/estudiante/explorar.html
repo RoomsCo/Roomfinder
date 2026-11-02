@@ -6,7 +6,7 @@
     <title>Explorar habitaciones | RoomFinder</title>
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
-<body class="app">
+<body class="app page-explore">
     <header class="app-header">
         <a class="app-brand" href="explorar.html">
             <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
@@ -53,7 +53,9 @@
                     <label class="chip" for="disponible-ahora"><input class="chip__input" id="disponible-ahora" name="disponible" type="checkbox" value="ahora" checked>Disponible ahora</label>
             </fieldset>
         </form>
-
+<aside id="consejo-busqueda" class="explore-tip">
+    <strong>Consejo:</strong> revisa los servicios incluidos antes de solicitar una visita.
+</aside>
         <section class="room-grid" aria-label="Habitaciones disponibles">
             <article class="room-card">
                 <a class="room-card__media" href="detalle-habitacion.html">
