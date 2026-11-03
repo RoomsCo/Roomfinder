@@ -6,7 +6,7 @@
     <title>Solicitar visita | RoomFinder</title>
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
-<body class="app">
+<body class="app page-request">
     <header class="app-header">
         <a class="app-brand" href="explorar.html">
             <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
@@ -29,9 +29,11 @@
 
     <main class="app-main app-main--split">
         <section class="request">
-            <h1 class="page-head__title">Solicitar visita</h1>
-            <p class="page-head__subtitle">Elige un horario disponible y cuéntale algo a Andrea.</p>
-            <div class="request__progress" aria-label="Paso 2 de 3"><span class="request__progress-bar"></span></div>
+            <div class="request__heading">
+                <h1 class="page-head__title">Solicitar visita</h1>
+                <p class="page-head__subtitle">Elige un horario disponible y cuéntale algo a Andrea.</p>
+            </div>
+            <div class="request__progress" role="img" aria-label="Paso 2 de 3"><span class="request__progress-bar"></span></div>
 
             <form class="request__form" action="confirmacion-solicitud.html">
                 <div class="app-field">
@@ -42,7 +44,7 @@
                     </div>
                 </div>
                 <fieldset class="chips">
-                    <legend class="app-field__label">Horario</legend>
+                    <legend class="chips__legend">Horario</legend>
                     <label class="chip" for="hora-1000"><input class="chip__input" id="hora-1000" name="hora" type="radio" value="1000">10:00</label>
                     <label class="chip" for="hora-1130"><input class="chip__input" id="hora-1130" name="hora" type="radio" value="1130" checked>11:30</label>
                     <label class="chip" for="hora-1600"><input class="chip__input" id="hora-1600" name="hora" type="radio" value="1600">16:00</label>
@@ -52,7 +54,7 @@
                     <textarea class="app-field__input app-field__input--area" id="mensaje" name="mensaje" rows="3">Hola, estudio en la UPC y quisiera conocer la habitación.</textarea>
                 </div>
                 <p class="app-note">
-                    <img src="../../img/icon-circle-help.svg" alt="" width="16" height="16">
+                    <img src="../../img/icon-circle-help.svg" alt="" width="20" height="20">
                     Podrás cancelar hasta 2 horas antes. Verifica fecha y hora antes de enviar.
                 </p>
                 <a class="app-button app-button--primary app-button--block" href="confirmacion-solicitud.html">Confirmar solicitud</a>
@@ -63,7 +65,15 @@
             <h2 class="summary__title">Resumen</h2>
             <p class="summary__room">Habitación luminosa cerca a UPC</p>
             <p class="summary__meta">S/ 980/mes · 18 min a UPC</p>
-            <span class="badge badge--success"><img src="../../img/icon-circle-check-success.svg" alt="" width="14" height="14">Disponible ahora</span>
+
+            <span class="badge badge--success">
+                <img src="../../img/icon-circle-check-success.svg" alt="" width="14" height="14">
+                Disponible ahora
+            </span>
+
+            <p id="horario-elegido" class="visit-slot-summary">
+            Horario elegido: 11:30
+            </p>
         </aside>
     </main>
 </body>

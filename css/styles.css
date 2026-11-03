@@ -1380,281 +1380,650 @@ body {
    Frame: 11 Solicitar visita · pages/estudiante/solicitar-visita.html
    ========================================================================== */
 
-/* Estudiante: solicitar visita */
-.app-main--split {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: start;
+/* Capturas 11 Web y Mobile. Alcance exclusivo de Solicitar visita. */
+.page-request {
+    min-height: 100vh;
+    line-height: normal;
 }
 
-.request {
+.page-request .app-user {
+    gap: 6px;
+    padding: 6px 10px;
+    background: rgba(15, 118, 110, 0.094);
+    line-height: 15px;
+}
+
+.page-request .app-main--split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    padding-bottom: var(--space-6);
+}
+
+.page-request .request {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-4);
+    min-width: 0;
 }
 
-.request__progress {
-    height: 4px;
-    margin: var(--space-2) 0;
+.page-request .request__heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.page-request .page-head__title {
+    font-size: var(--font-size-h2);
+    line-height: 34px;
+}
+
+.page-request .page-head__subtitle {
+    line-height: 17px;
+}
+
+.page-request .request__progress {
+    height: 6px;
     background: var(--color-teal-soft);
     border-radius: 999px;
 }
 
-.request__progress-bar {
+.page-request .request__progress-bar {
     display: block;
-    width: 45%;
+    width: 61.5%;
     height: 100%;
     background: var(--color-secondary);
     border-radius: 999px;
 }
 
-.request__form {
+.page-request .request__form {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
 }
 
-.summary {
+.page-request .app-field {
+    gap: 6px;
+}
+
+.page-request .app-field__label {
+    font-size: var(--font-size-caption);
+    line-height: 16px;
+}
+
+.page-request .app-field__control {
+    height: 44px;
+}
+
+.page-request .app-field__input {
+    height: 42px;
+    line-height: 17px;
+}
+
+.page-request .app-field__input--area {
+    height: 44px;
+    min-height: 44px;
+    padding: 4px 10px;
+    border: 2px solid var(--color-primary);
+    line-height: 16px;
+}
+
+.page-request .chip {
+    min-width: 60px;
+    justify-content: center;
+    font-size: var(--font-size-caption);
+    line-height: 16px;
+}
+
+.page-request .app-note {
+    padding: 0;
+    background: transparent;
+    color: var(--color-muted);
+    font-size: var(--font-size-small);
+    line-height: 15px;
+}
+
+.page-request .app-note img {
+    margin-top: 0;
+}
+
+.page-request .app-button {
+    min-height: 44px;
+    line-height: 17px;
+}
+
+.page-request .badge {
+    min-width: 138px;
+    gap: 6px;
+    padding: 6px 10px;
+    line-height: 15px;
+}
+
+.page-request .summary {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
-    padding: var(--space-4);
+    gap: var(--space-3);
+    padding: calc(var(--space-4) - 1px);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
 }
 
-.summary__title {
+.page-request .summary__title {
     font-size: var(--font-size-body);
-    font-weight: var(--font-weight-bold);
+    line-height: 19px;
+    font-weight: var(--font-weight-semibold);
 }
 
-.summary__room {
+.page-request .summary__room {
     font-size: var(--font-size-label);
+    line-height: 17px;
 }
 
-.summary__meta {
+.page-request .summary__meta {
     color: var(--color-muted);
     font-size: var(--font-size-caption);
+    line-height: 16px;
 }
 
 @media (min-width: 768px) {
-    .app-main--split {
-        grid-template-columns: 1fr 320px;
+    .page-request .app-main--split {
+        grid-template-columns: minmax(0, 1fr) 320px;
         column-gap: var(--space-6);
+        padding-bottom: var(--space-12);
+    }
+
+    .page-request .request__progress-bar {
+        width: 45%;
+    }
+
+    .page-request .app-field__input--area {
+        padding-top: var(--space-3);
+        padding-bottom: var(--space-3);
     }
 }
 
+.visit-slot-summary {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #d6d3d1;
+    color: #57534e;
+    font-size: 13px;
+}
+
+.visit-slot-summary:hover {
+    color: #0f766e;
+}
 
 /* ==========================================================================
    Estudiante: confirmación de solicitud
    Frame: 12 Confirmación de solicitud · pages/estudiante/confirmacion-solicitud.html
    ========================================================================== */
 
-/* Estudiante: confirmación de solicitud */
-.app-main--center {
+/* Capturas 12 Web y Mobile. Alcance exclusivo de Confirmación. */
+.page-confirm {
+    min-height: 100vh;
+    line-height: normal;
+}
+
+.page-confirm .app-user {
+    gap: 6px;
+    padding: 6px 10px;
+    background: rgba(15, 118, 110, 0.094);
+    line-height: 15px;
+}
+
+.page-confirm .app-main--center {
     min-height: calc(100vh - 64px);
+    padding-bottom: var(--space-6);
     justify-content: center;
 }
 
-.confirm {
+.page-confirm .confirm {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-4);
-    max-width: 420px;
+    gap: 20px;
+    width: 100%;
+    max-width: 440px;
     margin: 0 auto;
     text-align: center;
 }
 
-.confirm__icon {
+.page-confirm .confirm__icon {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 72px;
     height: 72px;
+    flex-shrink: 0;
     background: var(--color-teal-soft);
     border-radius: 50%;
 }
 
-.confirm__title {
+.page-confirm .confirm__title {
     font-size: var(--font-size-h2);
-    line-height: var(--line-height-h2);
+    line-height: 34px;
     font-weight: var(--font-weight-bold);
+    color: #000000;
 }
 
-.confirm__text {
+.page-confirm .confirm__text {
+    max-width: 320px;
     color: var(--color-muted);
     font-size: var(--font-size-label);
+    line-height: 21px;
 }
 
-.confirm .badge {
+.page-confirm .confirm .badge {
+    min-width: 133px;
     align-self: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: rgba(15, 118, 110, 0.094);
+    line-height: 15px;
 }
 
-.confirm__actions {
+.page-confirm .confirm__actions {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--space-2);
 }
 
-.confirm__next {
-    color: var(--color-muted);
-    font-size: var(--font-size-caption);
+.page-confirm .confirm__actions .app-button {
+    min-height: 44px;
+    line-height: 17px;
 }
 
+.page-confirm .confirm__actions .app-button--primary {
+    min-width: 160px;
+}
+
+.page-confirm .confirm__actions .app-button--secondary {
+    min-width: 146px;
+}
+
+.page-confirm .confirm__next {
+    color: var(--color-muted);
+    font-size: var(--font-size-caption);
+    line-height: 16px;
+}
+
+@media (min-width: 768px) {
+    .page-confirm .app-main--center {
+        padding-bottom: var(--space-12);
+    }
+
+    .page-confirm .confirm__text {
+        max-width: 440px;
+    }
+
+    .page-confirm .confirm__time {
+        display: block;
+    }
+}
+
+.confirm-favorites-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.confirm-favorites-link:hover {
+    color: #0f766e;
+    text-decoration: underline;
+}
 
 /* ==========================================================================
    Estudiante: mis solicitudes de visita
    Frame: 13 Mis solicitudes de visita · pages/estudiante/mis-solicitudes.html
    ========================================================================== */
 
-/* Estudiante: mis solicitudes de visita */
-.visits {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
+/* Capturas 13 Web y Mobile. Alcance exclusivo de Mis solicitudes. */
+.page-visits {
+    min-height: 100vh;
+    border: 1px solid var(--color-border);
+    line-height: normal;
 }
 
-.visits__tabs {
+.page-visits .app-main {
+    max-width: 1440px;
+    padding-bottom: var(--space-6);
+}
+
+.page-visits .app-user {
+    min-width: 73px;
+    gap: 6px;
+    padding: 6px 10px;
+    line-height: 15px;
+}
+
+.page-visits .visits {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.page-visits .visits__heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.page-visits .page-head__title {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.page-visits .page-head__subtitle {
+    line-height: 17px;
+}
+
+.page-visits .visits__tabs {
     display: flex;
     align-self: flex-start;
-    gap: var(--space-1);
-    margin: var(--space-2) 0;
+    max-width: 100%;
+    margin-top: 1px;
     padding: var(--space-1);
     background: var(--color-soft);
     border-radius: var(--radius-md);
 }
 
-.visits__tab {
-    padding: var(--space-2) var(--space-3);
+.page-visits .visits__tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: var(--space-2) 14px;
     border-radius: var(--radius-sm);
     color: var(--color-muted);
-    font-size: var(--font-size-label);
+    font-size: var(--font-size-caption);
+    line-height: 16px;
 }
 
-.visits__tab:hover {
+.page-visits .visits__tab:hover {
     color: var(--color-text);
 }
 
-.visits__tab--active {
+.page-visits .visits__tab--active {
+    min-width: 110px;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     color: var(--color-text);
     font-weight: var(--font-weight-semibold);
 }
 
-.visits__list {
+.page-visits .visits__tab:nth-child(2) {
+    min-width: 114px;
+}
+
+.page-visits .visits__tab:last-child {
+    min-width: 81px;
+}
+
+.page-visits .visits__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-6);
+}
+
+.page-visits .visits__list {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
 }
 
-.visit-card {
+.page-visits .visit-card {
     display: grid;
-    grid-template-columns: 72px 1fr;
-    gap: var(--space-3);
+    grid-template-columns: 72px minmax(0, 1fr);
+    column-gap: var(--space-3);
+    row-gap: var(--space-4);
+    min-height: 180px;
     padding: var(--space-4);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(28, 25, 23, 0.078);
 }
 
-.visit-card--selected {
+.page-visits .visit-card--selected {
     border: 2px solid var(--color-primary);
 }
 
-.visit-card__photo {
+.page-visits .visit-card__photo {
     width: 72px;
     height: 56px;
     object-fit: cover;
     border-radius: var(--radius-sm);
 }
 
-.visit-card__body {
+.page-visits .visit-card__body {
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
 }
 
-.visit-card__title {
+.page-visits .visit-card__title {
     font-size: var(--font-size-body);
     font-weight: var(--font-weight-semibold);
+    line-height: 19px;
 }
 
-.visit-card__date {
+.page-visits .visit-card__date {
     display: flex;
     align-items: center;
-    gap: var(--space-1);
+    gap: 6px;
     font-size: var(--font-size-caption);
+    line-height: 17px;
+    color: var(--color-muted);
 }
 
-.visit-card__host {
+.page-visits .visit-card__host {
     color: var(--color-muted);
     font-size: var(--font-size-small);
+    line-height: 15px;
 }
 
-.visit-card__actions {
+.page-visits .visit-card__actions {
     grid-column: 1 / -1;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
     justify-content: flex-end;
-    gap: var(--space-6);
+    gap: var(--space-2);
 }
 
-.visit-card__cancel {
+.page-visits .visit-card__cancel {
     color: var(--color-error);
     font-size: var(--font-size-label);
     font-weight: var(--font-weight-semibold);
     text-decoration: underline;
+    text-align: center;
+    line-height: 17px;
 }
 
-.reschedule {
+.page-visits .app-button {
+    min-height: 39px;
+    line-height: 17px;
+    padding-right: var(--space-2);
+    padding-left: var(--space-2);
+}
+
+.page-visits .app-button--primary {
+    min-height: 37px;
+}
+
+.page-visits .badge {
+    gap: 6px;
+    padding: 6px 10px;
+    line-height: 15px;
+}
+
+.page-visits .badge--teal {
+    min-width: 196px;
+}
+
+.page-visits .badge--success {
+    min-width: 108px;
+}
+
+.page-visits .reschedule {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    padding: var(--space-6) var(--space-4);
+    gap: var(--space-4);
+    min-width: 0;
+    padding: var(--space-4);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(28, 25, 23, 0.078);
 }
 
-.reschedule:target {
+.page-visits .reschedule:target {
     border-color: var(--color-primary);
 }
 
-.reschedule__title {
-    font-size: 20px;
+.page-visits .reschedule__title {
+    font-size: 18px;
+    line-height: 22px;
     font-weight: var(--font-weight-semibold);
 }
 
-.reschedule__text {
+.page-visits .reschedule__text {
     color: var(--color-muted);
     font-size: var(--font-size-caption);
+    line-height: 16px;
 }
 
-.reschedule__actions {
+.page-visits .request__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.page-visits .app-field {
+    gap: 6px;
+}
+
+.page-visits .app-field__label {
+    font-size: var(--font-size-caption);
+    line-height: 16px;
+}
+
+.page-visits .app-field__control {
+    height: 44px;
+}
+
+.page-visits .app-field__input {
+    height: 42px;
+    line-height: 17px;
+}
+
+.page-visits .app-field__input--area {
+    height: 72px;
+    min-height: 72px;
+    padding: 18px var(--space-3);
+    letter-spacing: 0.2px;
+}
+
+.page-visits .chip {
+    min-width: 60px;
+    justify-content: center;
+    font-size: var(--font-size-caption);
+    line-height: 16px;
+}
+
+.page-visits .app-note {
+    align-items: center;
+    padding: 10px var(--space-3);
+    line-height: 16px;
+}
+
+.page-visits .app-note img {
+    margin-top: 0;
+}
+
+.page-visits .reschedule__actions {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
     gap: var(--space-2);
 }
 
 @media (min-width: 768px) {
-    .visit-card {
-        grid-template-columns: 96px 1fr;
+    .page-visits .app-main {
+        padding: var(--space-10) var(--space-20) var(--space-12);
     }
 
-    .visit-card__photo {
+    .page-visits .page-head__title {
+        font-size: var(--font-size-h2);
+        line-height: 34px;
+    }
+
+    .page-visits .visits__tabs {
+        margin-top: 0;
+    }
+
+    .page-visits .visit-card {
+        grid-template-columns: 96px minmax(0, 1fr);
+    }
+
+    .page-visits .visit-card--selected {
+        min-height: 182px;
+    }
+
+    .page-visits .visit-card__photo {
         width: 96px;
         height: 72px;
     }
 
-    .reschedule {
+    .page-visits .visit-card__actions {
+        display: flex;
+        gap: var(--space-6);
+    }
+
+    .page-visits .visit-card__actions .app-button {
+        min-width: 123px;
+    }
+
+    .page-visits .reschedule {
         padding: var(--space-6);
+    }
+
+    .page-visits .app-field__input--area {
+        padding-top: 26px;
+        padding-bottom: 26px;
+        letter-spacing: normal;
     }
 }
 
+@media (min-width: 1100px) {
+    .page-visits .visits__layout {
+        grid-template-columns: minmax(0, 1fr) 420px;
+    }
+}
+
+.visits-status-key {
+    width: fit-content;
+    margin-top: 12px;
+    padding: 8px 12px;
+    border: 1px solid #d6d3d1;
+    border-radius: 8px;
+    color: #57534e;
+    font-size: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.visits-status-key:hover {
+    background-color: #ccfbf1;
+    color: #0f766e;
+}
 
 /* ==========================================================================
    Estudiante: perfil y preferencias

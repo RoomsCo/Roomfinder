@@ -6,7 +6,7 @@
     <title>Solicitud enviada | RoomFinder</title>
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
-<body class="app">
+<body class="app page-confirm">
     <header class="app-header">
         <a class="app-brand" href="explorar.html">
             <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
@@ -33,13 +33,18 @@
                 <img src="../../img/icon-circle-check.svg" alt="" width="36" height="36">
             </span>
             <h1 class="confirm__title">¡Solicitud enviada!</h1>
-            <p class="confirm__text">Andrea recibió tu solicitud para el sábado 26 de septiembre a las 11:30. Te notificaremos cuando responda.</p>
+            <p class="confirm__text">Andrea recibió tu solicitud para el sábado 26 de septiembre a <span class="confirm__time">las 11:30. Te notificaremos cuando responda.</span></p>
             <span class="badge badge--teal"><img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">Estado: enviada</span>
             <div class="confirm__actions">
                 <a class="app-button app-button--primary" href="mis-solicitudes.html">Ver mis solicitudes</a>
                 <a class="app-button app-button--secondary" href="explorar.html">Volver a explorar</a>
             </div>
             <p class="confirm__next">Próximo paso: espera la confirmación del anfitrión.</p>
+            <a id="revisar-favoritos"
+                class="confirm-favorites-link"
+                href="favoritos.html">
+                Revisar favoritos
+            </a>
         </section>
     </main>
 </body>
