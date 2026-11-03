@@ -899,66 +899,328 @@ body {
    Frame: 09 Favoritos · pages/estudiante/favoritos.html
    ========================================================================== */
 
-/* Estudiante: favoritos */
-.room-card__actions {
-    padding-top: var(--space-1);
+/* Capturas 09 Desktop (1440) y Móvil (390). Solo pantalla Favoritos. */
+.page-favorites {
+    min-height: 100vh;
+    border: 1px solid var(--color-border);
+    line-height: normal;
 }
 
-.room-card__remove {
+.page-favorites .app-main {
+    max-width: 1440px;
+    padding-bottom: var(--space-6);
+}
+
+.page-favorites .app-user {
+    min-width: 73px;
+    gap: 6px;
+    padding: 6px 10px;
+    line-height: 15px;
+}
+
+.page-favorites .page-head {
+    gap: 0;
+}
+
+.page-favorites .page-head__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.page-favorites .page-head__title {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.page-favorites .page-head__subtitle {
+    line-height: 17px;
+}
+
+.page-favorites .app-button {
+    min-height: 37px;
+    line-height: 17px;
+}
+
+.page-favorites .page-head__action {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.page-favorites .room-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.page-favorites .room-card {
+    min-width: 0;
+    box-shadow: 0 8px 24px rgba(28, 25, 23, 0.078);
+}
+
+.page-favorites .room-card__media {
+    display: block;
+}
+
+.page-favorites .room-card__photo {
+    height: 140px;
+}
+
+.page-favorites .room-card__body {
+    gap: 6px;
+}
+
+.page-favorites .room-card__top {
+    align-items: flex-start;
+}
+
+.page-favorites .badge {
+    min-width: 138px;
+    flex-shrink: 0;
+    gap: 6px;
+    padding: 6px 10px;
+    line-height: 15px;
+    white-space: nowrap;
+}
+
+.page-favorites .badge--success {
+    color: var(--color-secondary);
+    background: var(--color-teal-soft);
+}
+
+.page-favorites .room-card__price {
+    line-height: 22px;
+    white-space: nowrap;
+}
+
+.page-favorites .room-card__title {
+    min-width: 0;
+    line-height: 20px;
+}
+
+.page-favorites .room-card__fav {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 20px;
+}
+
+.page-favorites .room-card__meta {
+    line-height: 16px;
+}
+
+.page-favorites .room-card__services {
+    line-height: 15px;
+}
+
+.page-favorites .room-card__actions {
+    padding-top: var(--space-3);
+}
+
+.page-favorites .app-check {
     font-size: var(--font-size-caption);
+    line-height: 16px;
+    cursor: default;
+}
+
+/* Estados de ejemplo fijos: los inputs están deshabilitados en el HTML. */
+.page-favorites .app-check__input {
+    appearance: none;
+    position: relative;
+    flex-shrink: 0;
+    border: 2px solid var(--color-text);
+    border-radius: 2px;
+    background: var(--color-surface);
+    opacity: 1;
+}
+
+.page-favorites .app-check__input:checked {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+}
+
+.page-favorites .app-check__input:checked::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 4px;
+    width: 4px;
+    height: 8px;
+    border: solid var(--color-surface);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.page-favorites .room-card__remove {
+    color: var(--color-muted);
+    font-size: var(--font-size-caption);
+    line-height: 16px;
     font-weight: var(--font-weight-semibold);
 }
 
-.room-card__remove:hover {
+.page-favorites .room-card__remove:hover {
     color: var(--color-error);
 }
 
+.page-favorites .app-note {
+    align-items: center;
+    padding: 10px var(--space-3);
+    line-height: 16px;
+}
+
+.page-favorites .app-note img {
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+    .page-favorites .app-main {
+        padding: var(--space-10) var(--space-20) var(--space-12);
+    }
+
+    .page-favorites .page-head {
+        gap: var(--space-4);
+    }
+
+    .page-favorites .page-head__title {
+        font-size: var(--font-size-h2);
+        line-height: 34px;
+    }
+
+    .page-favorites .page-head__action {
+        width: auto;
+        min-width: 123px;
+    }
+
+    .page-favorites .room-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .page-favorites .room-card__photo {
+        height: 150px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .page-favorites .room-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+.favorites-tip {
+    transition: background-color 0.2s ease;
+}
+
+.favorites-tip:hover {
+    background-color: #99f6e4;
+}
 
 /* ==========================================================================
    Estudiante: comparar habitaciones
    Frame: 10 Comparar habitaciones · pages/estudiante/comparar.html
    ========================================================================== */
 
-/* Estudiante: comparar habitaciones */
-.compare {
+/* Capturas 10 Desktop (1440) y Móvil (390). Solo pantalla Comparar. */
+.page-compare {
+    min-height: 100vh;
+    border: 1px solid var(--color-border);
+    line-height: normal;
+}
+
+.page-compare .app-main {
+    max-width: 1440px;
+    padding-bottom: var(--space-6);
+}
+
+.page-compare .app-user {
+    min-width: 73px;
+    gap: 6px;
+    padding: 6px 10px;
+    line-height: 15px;
+}
+
+.page-compare .page-head {
+    gap: 0;
+}
+
+.page-compare .page-head__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.page-compare .page-head__title {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.page-compare .page-head__subtitle {
+    line-height: 17px;
+}
+
+.page-compare .app-button {
+    min-height: 37px;
+    line-height: 17px;
+}
+
+.page-compare .page-head__action {
+    width: 100%;
+    min-height: 39px;
+    flex-shrink: 0;
+}
+
+.page-compare .compare {
+    min-width: 0;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     overflow: hidden;
+    box-shadow: 0 8px 24px rgba(28, 25, 23, 0.078);
 }
 
-.compare__table {
+.page-compare .compare__table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     table-layout: fixed;
     font-size: var(--font-size-caption);
+    line-height: 16px;
 }
 
-.compare__label,
-.compare__cell,
-.compare__room {
-    padding: var(--space-3) var(--space-2);
+.page-compare .compare__label,
+.page-compare .compare__cell,
+.page-compare .compare__room {
+    padding: 10px var(--space-2) 10px var(--space-1);
     text-align: left;
     vertical-align: middle;
 }
 
-.compare__label {
+.page-compare .compare__label {
     width: 30%;
+    padding-left: 10px;
     font-weight: var(--font-weight-semibold);
 }
 
-.compare__label--head {
+.page-compare .compare__label--head {
     vertical-align: top;
     color: var(--color-muted);
-    font-weight: var(--font-weight-regular);
 }
 
-.compare__room {
-    position: relative;
+.page-compare .compare__room {
     vertical-align: top;
 }
 
-.compare__photo {
+/* El hueco entre habitaciones se reparte entre ambas celdas. */
+.page-compare .compare__room:nth-child(2),
+.page-compare .compare__cell:nth-child(2) {
+    padding-right: var(--space-1);
+    padding-left: var(--space-2);
+}
+
+.page-compare .compare__room:last-child,
+.page-compare .compare__cell:last-child {
+    padding-right: 10px;
+}
+
+.page-compare .compare__photo {
     width: 100%;
     height: 64px;
     object-fit: cover;
@@ -966,61 +1228,152 @@ body {
     margin-bottom: var(--space-2);
 }
 
-.compare__name {
+.page-compare .compare__heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-2);
+}
+
+.page-compare .compare__name {
     display: block;
-    padding-right: var(--space-6);
-    font-size: var(--font-size-small);
+    flex: 1;
+    min-width: 0;
+    font-size: var(--font-size-caption);
     line-height: 16px;
     font-weight: var(--font-weight-semibold);
 }
 
-.compare__remove {
-    position: absolute;
-    right: var(--space-2);
-    bottom: var(--space-3);
+.page-compare .compare__name-place {
+    white-space: nowrap;
 }
 
-.compare__row {
+.page-compare .compare__district-end {
+    display: block;
+}
+
+.page-compare .compare__remove {
+    display: block;
+    flex-shrink: 0;
+    width: 14px;
+    height: 16px;
+}
+
+.page-compare .compare__row .compare__label,
+.page-compare .compare__row .compare__cell {
     border-top: 1px solid var(--color-soft);
 }
 
-.compare__row:nth-child(even) {
-    background: var(--color-soft);
+.page-compare .compare__row:nth-child(even) {
+    background: var(--color-background);
 }
 
-.compare__cell--strong {
+.page-compare .compare__cell--strong {
     font-weight: var(--font-weight-semibold);
 }
 
+.page-compare tfoot .compare__label,
+.page-compare tfoot .compare__cell {
+    border-top: 1px solid var(--color-soft);
+    padding-bottom: 9px;
+}
+
+.page-compare tfoot .app-button {
+    padding-right: var(--space-2);
+    padding-left: var(--space-2);
+    white-space: nowrap;
+}
+
+.page-compare .compare__visit-desktop {
+    display: none;
+}
+
 @media (min-width: 768px) {
-    .compare__table {
-        font-size: var(--font-size-label);
+    .page-compare .app-main {
+        padding: var(--space-10) var(--space-20) var(--space-12);
     }
 
-    .compare__label,
-    .compare__cell,
-    .compare__room {
-        padding: var(--space-3) var(--space-4);
+    .page-compare .page-head {
+        gap: var(--space-4);
     }
 
-    .compare__label {
+    .page-compare .page-head__title {
+        font-size: var(--font-size-h2);
+        line-height: 34px;
+    }
+
+    .page-compare .page-head__action {
+        width: auto;
+        min-width: 149px;
+    }
+
+    .page-compare .compare__label,
+    .page-compare .compare__cell {
+        padding-top: var(--space-3);
+        padding-bottom: var(--space-3);
+    }
+
+    .page-compare .compare__label {
         width: 20%;
+        padding-left: var(--space-4);
     }
 
-    .compare__photo {
+    .page-compare .compare__room {
+        padding-top: var(--space-4);
+        padding-bottom: calc(var(--space-4) - 1px);
+    }
+
+    .page-compare .compare__room:nth-child(2),
+    .page-compare .compare__cell:nth-child(2) {
+        padding-right: var(--space-2);
+        padding-left: var(--space-4);
+    }
+
+    .page-compare .compare__room:last-child,
+    .page-compare .compare__cell:last-child {
+        padding-right: var(--space-4);
+        padding-left: var(--space-2);
+    }
+
+    .page-compare .compare__photo {
         height: 96px;
     }
 
-    .compare__name {
+    .page-compare .compare__name {
         font-size: var(--font-size-body);
-        line-height: var(--line-height-body);
+        line-height: 20px;
     }
 
-    .compare__remove {
-        right: var(--space-4);
+    .page-compare .compare__remove {
+        height: 20px;
+    }
+
+    .page-compare .compare__district-end {
+        display: inline;
+    }
+
+    .page-compare tfoot .compare__label,
+    .page-compare tfoot .compare__cell {
+        padding-top: var(--space-4);
+        padding-bottom: var(--space-4);
+    }
+
+    .page-compare .compare__visit-desktop {
+        display: inline;
+    }
+
+    .page-compare .compare__visit-mobile {
+        display: none;
     }
 }
 
+.compare-note {
+    transition: color 0.2s ease;
+}
+
+.compare-note:hover {
+    color: #2563eb;
+}
 
 /* ==========================================================================
    Estudiante: solicitar visita

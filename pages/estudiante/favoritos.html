@@ -6,7 +6,7 @@
     <title>Mis favoritos | RoomFinder</title>
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
-<body class="app">
+<body class="app page-favorites">
     <header class="app-header">
         <a class="app-brand" href="explorar.html">
             <img class="app-brand__mark" src="../../img/logo-mark.svg" alt="" width="32" height="32">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="room-card__actions">
                     <label class="app-check" for="comparar-habitacion-luminosa">
-                        <input class="app-check__input" id="comparar-habitacion-luminosa" name="comparar" type="checkbox" checked>
+                        <input class="app-check__input" id="comparar-habitacion-luminosa" name="comparar" type="checkbox" checked disabled>
                         Comparar
                     </label>
                     <a class="room-card__remove" href="#">Quitar</a>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="room-card__actions">
                     <label class="app-check" for="comparar-cuarto-bano-propio">
-                        <input class="app-check__input" id="comparar-cuarto-bano-propio" name="comparar" type="checkbox" checked>
+                        <input class="app-check__input" id="comparar-cuarto-bano-propio" name="comparar" type="checkbox" checked disabled>
                         Comparar
                     </label>
                     <a class="room-card__remove" href="#">Quitar</a>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="room-card__actions">
                     <label class="app-check" for="comparar-depa-compartido">
-                        <input class="app-check__input" id="comparar-depa-compartido" name="comparar" type="checkbox">
+                        <input class="app-check__input" id="comparar-depa-compartido" name="comparar" type="checkbox" disabled>
                         Comparar
                     </label>
                     <a class="room-card__remove" href="#">Quitar</a>
@@ -117,10 +117,10 @@
             </article>
         </section>
 
-        <p class="app-note">
+        <aside id="consejo-favoritos" class="app-note favorites-tip">
             <img src="../../img/icon-info.svg" alt="" width="16" height="16">
             Si una habitación guardada deja de estar disponible, te avisaremos aquí.
-        </p>
+        </aside>
     </main>
 </body>
 </html>
