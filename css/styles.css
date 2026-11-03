@@ -1292,6 +1292,11 @@ body:has(.mobile-menu:target) .app-main {
     body:has(.mobile-menu:target) .app-main {
         display: flex;
     }
+
+    /* El perfil usa grid, no flex: se le devuelve su propio display */
+    body:has(.mobile-menu:target) .app-main--profile {
+        display: grid;
+    }
 }
 
 /* ==========================================================================
