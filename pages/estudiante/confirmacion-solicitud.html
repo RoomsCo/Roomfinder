@@ -22,9 +22,16 @@
             <img src="../../img/icon-circle-check.svg" alt="" width="14" height="14">
             <span>María</span>
         </a>
-        <a class="app-header__menu" href="#" aria-label="Abrir menú">
-            <img src="../../img/icon-menu.svg" alt="" width="20" height="20">
-        </a>
+        <details class="app-header__menu student-menu">
+            <summary class="student-menu__toggle" aria-label="Menú de navegación">
+                <img src="../../img/icon-menu.svg" alt="" width="20" height="20">
+            </summary>
+            <nav class="student-menu__nav" aria-label="Navegación móvil del estudiante">
+                <a class="student-menu__link" href="explorar.html">Explorar</a>
+                <a class="student-menu__link" href="favoritos.html">Favoritos</a>
+                <a class="student-menu__link" href="mis-solicitudes.html" aria-current="page">Mis solicitudes</a>
+            </nav>
+        </details>
     </header>
 
     <main class="app-main app-main--center">
