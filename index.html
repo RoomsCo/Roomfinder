@@ -3,14 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RoomFinder | Encuentra tu habitación cerca de tu campus</title>
+    <title>RoomFinder | Encuentra una habitación cerca de tu campus</title>
+    <meta name="description" content="RoomFinder: compara precio, tiempo al campus y reglas de convivencia antes de visitar. Anfitriones verificados en Lima.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <header class="landing-header"></header>
+<body class="landing">
+    <header class="landing-header">
+        <a class="brand" href="index.html">
+            <img class="brand__mark" src="img/logo-mark.svg" alt="" width="32" height="32">
+            <span class="brand__name">RoomFinder</span>
+        </a>
+
+        <nav class="landing-nav" aria-label="Navegación principal">
+            <ul class="landing-nav__links">
+                <li><a class="landing-nav__link" href="#como-funciona">Cómo funciona</a></li>
+                <li><a class="landing-nav__link" href="#beneficios">Beneficios</a></li>
+                <li><a class="landing-nav__link" href="#experiencias">Experiencias</a></li>
+            </ul>
+            <a class="lang-switch" href="#" aria-label="Cambiar idioma">
+                <img src="img/icon-globe.svg" alt="" width="14" height="14">
+                <span>ES | EN</span>
+            </a>
+            <a class="button button--secondary" href="pages/auth/login.html">Iniciar sesión</a>
+            <a class="button button--primary" href="pages/auth/crear-cuenta.html">Crear cuenta</a>
+        </nav>
+
+        <a class="landing-header__menu" href="#" aria-label="Abrir menú">
+            <img src="img/icon-menu.svg" alt="" width="20" height="20">
+        </a>
+    </header>
+
     <main>
-        <h1>RoomFinder</h1>
+        <section class="hero">
+            <div class="hero__copy">
+                <p class="badge">
+                    <img src="img/icon-shield.svg" alt="" width="14" height="14">
+                    Para universitarios de Lima
+                </p>
+                <h1 class="hero__title">Encuentra una habitación cerca de tu campus, sin sorpresas</h1>
+                <p class="hero__text">Compara precio, tiempo al campus y reglas de convivencia antes de visitar. Todos los anfitriones están verificados.</p>
+                <div class="hero__actions">
+                    <a class="button button--primary" href="pages/auth/crear-cuenta.html">Busco habitación</a>
+                    <a class="button button--secondary" href="pages/auth/crear-cuenta.html">Publico una habitación</a>
+                </div>
+            </div>
+            <img class="hero__image" src="img/hero-habitacion.jpg" alt="Habitación amoblada con cama, escritorio, estantes y una ventana con luz natural" width="615" height="400">
+        </section>
+
+        <section class="stats" id="cifras">
+            <h2 class="stats__title">RoomFinder en cifras</h2>
+            <ul class="stats__list">
+                <li class="stats__item">
+                    <p class="stats__number">+300</p>
+                    <p class="stats__label">habitaciones publicadas</p>
+                </li>
+                <li class="stats__item">
+                    <p class="stats__number">100%</p>
+                    <p class="stats__label">anfitriones verificados</p>
+                </li>
+                <li class="stats__item">
+                    <p class="stats__number">4</p>
+                    <p class="stats__label">campus UPC cubiertos</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section section--white" id="como-funciona">
+            <h2 class="section__title">Cómo funciona</h2>
+            <ol class="steps">
+                <li class="card step">
+                    <span class="step__number">1</span>
+                    <h3 class="card__title">Crea tu cuenta</h3>
+                    <p class="card__text">Regístrate con tu correo universitario y valida tu condición de estudiante.</p>
+                </li>
+                <li class="card step">
+                    <span class="step__number">2</span>
+                    <h3 class="card__title">Busca y compara</h3>
+                    <p class="card__text">Filtra por distrito, precio y minutos al campus. Compara hasta 3 habitaciones.</p>
+                </li>
+                <li class="card step">
+                    <span class="step__number">3</span>
+                    <h3 class="card__title">Solicita una visita</h3>
+                    <p class="card__text">Elige un horario disponible y recibe la confirmación del anfitrión.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="section" id="beneficios">
+            <h2 class="section__title">Beneficios</h2>
+            <div class="benefits">
+                <article class="card card--white benefit">
+                    <h3 class="card__title">Para estudiantes</h3>
+                    <ul class="benefit__list">
+                        <li class="benefit__item">Precio total claro, sin cobros ocultos</li>
+                        <li class="benefit__item">Tiempo estimado a tu campus</li>
+                        <li class="benefit__item">Reglas de convivencia antes de visitar</li>
+                        <li class="benefit__item">Guarda y compara tus favoritas</li>
+                    </ul>
+                </article>
+                <article class="card card--white benefit">
+                    <h3 class="card__title">Para anfitriones</h3>
+                    <ul class="benefit__list">
+                        <li class="benefit__item">Publica en minutos con ayuda de IA</li>
+                        <li class="benefit__item">Revisa el perfil de cada interesado</li>
+                        <li class="benefit__item">Gestiona solicitudes de visita</li>
+                        <li class="benefit__item">Consulta la demanda de tu zona</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section--white" id="experiencias">
+            <h2 class="section__title">Experiencias</h2>
+            <div class="testimonials">
+                <figure class="card testimonial">
+                    <p class="testimonial__rating" aria-label="5 de 5 estrellas"></p>
+                    <blockquote class="testimonial__quote">“Encontré cuarto a 15 minutos de la UPC y pude ver las reglas antes de ir.”</blockquote>
+                    <figcaption class="testimonial__author">
+                        <span class="testimonial__avatar"></span>
+                        Lucía R. · Estudiante de Ingeniería
+                    </figcaption>
+                </figure>
+                <figure class="card testimonial">
+                    <p class="testimonial__rating" aria-label="5 de 5 estrellas"></p>
+                    <blockquote class="testimonial__quote">“Comparar tres opciones lado a lado me ahorró dos visitas.”</blockquote>
+                    <figcaption class="testimonial__author">
+                        <span class="testimonial__avatar"></span>
+                        Diego S. · Estudiante de Arquitectura
+                    </figcaption>
+                </figure>
+                <figure class="card testimonial">
+                    <p class="testimonial__rating" aria-label="5 de 5 estrellas"></p>
+                    <blockquote class="testimonial__quote">“Recibo interesados con perfil verificado y elijo con calma.”</blockquote>
+                    <figcaption class="testimonial__author">
+                        <span class="testimonial__avatar"></span>
+                        Andrea M. · Anfitriona en Surco
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2 class="cta__title">¿Listo para encontrar tu próxima habitación?</h2>
+            <p class="cta__text">Crea tu cuenta gratis y elige si buscas o publicas una habitación.</p>
+            <a class="button button--light" href="pages/auth/crear-cuenta.html">Crear cuenta</a>
+        </section>
     </main>
-    <footer class="landing-footer"></footer>
+
+    <footer class="landing-footer">
+        <div class="landing-footer__brand">
+            <p class="landing-footer__name">RoomFinder</p>
+            <p class="landing-footer__copy">© 2026 RoomsCo · Lima, Perú</p>
+        </div>
+        <nav class="landing-footer__nav" aria-label="Enlaces del pie de página">
+            <a class="landing-footer__link" href="#">Términos</a>
+            <a class="landing-footer__link" href="#">Privacidad</a>
+            <a class="landing-footer__link" href="#">Contacto</a>
+            <a class="landing-footer__link" href="#">Ayuda</a>
+            <a class="lang-switch" href="#" aria-label="Cambiar idioma">
+                <img src="img/icon-globe.svg" alt="" width="14" height="14">
+                <span>ES | EN</span>
+            </a>
+        </nav>
+    </footer>
 </body>
 </html>
